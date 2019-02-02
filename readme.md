@@ -1,5 +1,11 @@
 # Coding History on the Streets
 
+## Buzz words
+
+- Curiosities
+- [Lady Brassey](http://www.hmag.org.uk/collections/durbar/)
+- Museum Ship
+
 ## Assumptions
 
 This is a *proof of concept*, and as such should be as simple and quick to develop as possible. With this in mind the following principles are outlined to drive design decisions:
@@ -18,6 +24,16 @@ This is a *proof of concept*, and as such should be as simple and quick to devel
 - [Working with Google Markers](https://developers.google.com/maps/documentation/javascript/markers)
 - [Working with Google Info boxes](https://developers.google.com/maps/documentation/javascript/infowindows)
 - [Snazzy Maps](https://snazzymaps.com/) for styling the map to look cool
+
+## Concept Art
+
+![https://pictures.abebooks.com/DURIETZ1/17195841311.jpg](https://pictures.abebooks.com/DURIETZ1/17195841311.jpg)
+
+From the book listing on [Abe Books](https://www.abebooks.com/first-edition/Sunshine-Storm-East-Cruises-Cyprus-Constantinople/17195841311/bd)
+
+There is a lot of "naval" graphics out there, which we can use with attribution etc, but the above image is really good as a kind of mood board. That is, I think the colours (browny-grey, red and gold) and art style spark the right feel of "curiosities" and "adventure" or "discovery". So I think we should look to use this as our starting point for styling the page.
+
+Note that we should probably avoid doing too much in terms of graphics - its costly and time consuming. So we'd be best off with free (with attribution) graphics, simple CSS, and map styling (i.e. use a SnazzyMaps style that we've tweaked for our purposes)
 
 ## Background
 
