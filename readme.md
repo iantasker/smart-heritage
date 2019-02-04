@@ -17,38 +17,6 @@ This is a *proof of concept*, and as such should be as simple and quick to devel
 - We will focus on one user journey, any deviation from this is out of scope
 - We will provide some basic branding and formatting to make the site have some visual appeal, but advanced features (like showing paths through a narrative) are considered out of scope
 
-## Helpful Resources
-
-- [Historic England's Walk History App](https://historicengland.org.uk/get-involved/visit/walking-tours/walk-history-app/)
-- [Google Clothing Store Locator Example](https://developers.google.com/maps/solutions/store-locator/clothing-store-locator)
-- [Working with Google Markers](https://developers.google.com/maps/documentation/javascript/markers)
-- [Working with Google Info boxes](https://developers.google.com/maps/documentation/javascript/infowindows)
-- [Snazzy Maps](https://snazzymaps.com/) for styling the map to look cool
-
-## Concept Art
-
-![https://pictures.abebooks.com/DURIETZ1/17195841311.jpg](https://pictures.abebooks.com/DURIETZ1/17195841311.jpg)
-
-From the book listing on [Abe Books](https://www.abebooks.com/first-edition/Sunshine-Storm-East-Cruises-Cyprus-Constantinople/17195841311/bd)
-
-There is a lot of "naval" graphics out there, which we can use with attribution etc, but the above image is really good as a kind of mood board. That is, I think the colours (browny-grey, red and gold) and art style spark the right feel of "curiosities" and "adventure" or "discovery". So I think we should look to use this as our starting point for styling the page.
-
-Note that we should probably avoid doing too much in terms of graphics - its costly and time consuming. So we'd be best off with free (with attribution) graphics, simple CSS, and map styling (i.e. use a SnazzyMaps style that we've tweaked for our purposes)
-
-## Background
-
-"A narrative consists of a set of events (the story) recounted in a process of narration (or discourse), in which the events are selected and arranged in a particular order (the plot)." [Narrative, Wikipedia, retrieved 2019-02-02 19:53](https://en.wikipedia.org/wiki/Narrative)
-
-Therefore a narrative is an ordered collection of at least one events where:
-
-- An event may be be categorised as being a beginning (an event with no preceding events), a middle (an event that has a preceding and proceeding event), or an end (an event that has no proceeding events).
-- If a narrative has just one event, the event must be a beginning.
-- If a narrative has more than one event, then there must be one beginning and one end event.
-- A narrative may be linear, where the events follow a fixed path from beginning to end.
-- A narrative may be non-linear, where the sequence of events allows for more than one event to follow another.
-- A narrative could be considered a lattice, or a tree-like data structure with a fixed start and end events.
-- An event is a piece of text, combined with some multimedia (typically image, audio, or video), presented using HTML.
-
 ## Expected User Journey
 
 This is not a thorough treatment of all reasonable user journeys, just the one targeted for the "Coding History on the Streets" event. A user may exit their journey at any time and without warning.
@@ -62,6 +30,52 @@ This is not a thorough treatment of all reasonable user journeys, just the one t
 - Once the user experiences the last (end) event the narrative is deselected and the list of visited events is cleared. The user goes off in search of another narrative to experience, or to get a coffee.
 
 Additional journeys might include looking back at previously visited events, jumping into a narrative part way through, collecting badges based on narratives experienced.
+
+## Concept Art
+
+### Sunshine and Storm in the East
+
+![https://pictures.abebooks.com/DURIETZ1/17195841311.jpg](https://pictures.abebooks.com/DURIETZ1/17195841311.jpg)
+
+From the book listing on [Abe Books](https://www.abebooks.com/first-edition/Sunshine-Storm-East-Cruises-Cyprus-Constantinople/17195841311/bd)
+
+#### Colour Palette
+
+| Indian Red | Brown | Gray | Beige | Black |
+| --- | --- | --- | --- | --- |
+| <div style="background-color:#DC6561;">#DC6561</div> | <div style="background-color:#912926;">#912926</div> | <div style="background-color:#7F726E;">#7F726E</div> | <div style="background-color:#F4F1E5;">#F4F1E5</div> | <div style="background-color:#2B211E;">#2B211E</div> |
+
+### A Voyage in the Sunbeam
+
+![https://pictures.abebooks.com/SOTHERANS/22840091455.jpg](https://pictures.abebooks.com/SOTHERANS/22840091455.jpg)
+
+From the book listing on [Abe Books](https://www.abebooks.com/servlet/BookDetailsPL?bi=22840091455)
+
+#### Colour Palette
+
+| Beige | Midnight Blue | Dark Slate Gray | Black | Gray |
+| --- | --- | --- | --- | --- |
+| <div style="background-color:#EBDABF;">#EBDABF</div> | <div style="background-color:#101B2D;">#101B2D</div> | <div style="background-color:#344C56;">#344C56</div> | <div style="background-color:#24221F;">#24221F</div> | <div style="background-color:#898575;">#898575</div> |
+
+There is a lot of "naval" graphics out there, which we can use with attribution etc, but the above image is really good as a kind of mood board. That is, I think the colours (browny-grey, red and gold) and art style spark the right feel of "curiosities" and "adventure" or "discovery". So I think we should look to use this as our starting point for styling the page.
+
+I started knocking up a [Google Map Style](https://snazzymaps.com/editor/edit-my-style/251389) based ont he colours from the first book, looks better at a distance than when looking at such a high zoom for the america ground. We can do an overlay onto a Google Map with another image - since we're using geo-location it'd need to be to scale etc.
+
+Note that we should probably avoid doing too much in terms of graphics - its costly and time consuming. So we'd be best off with free (with attribution) graphics, simple CSS, and map styling (i.e. use a SnazzyMaps style that we've tweaked for our purposes)
+
+## Defining a Taxonomy
+
+"A narrative consists of a set of events (the story) recounted in a process of narration (or discourse), in which the events are selected and arranged in a particular order (the plot)." [Narrative, Wikipedia, retrieved 2019-02-02 19:53](https://en.wikipedia.org/wiki/Narrative)
+
+Therefore a narrative is an ordered collection of at least one events where:
+
+- An event may be be categorised as being a beginning (an event with no preceding events), a middle (an event that has a preceding and proceeding event), or an end (an event that has no proceeding events).
+- If a narrative has just one event, the event must be a beginning.
+- If a narrative has more than one event, then there must be one beginning and one end event.
+- A narrative may be linear, where the events follow a fixed path from beginning to end.
+- A narrative may be non-linear, where the sequence of events allows for more than one event to follow another.
+- A narrative could be considered a lattice, or a tree-like data structure with a fixed start and end events.
+- An event is a piece of text, combined with some multimedia (typically image, audio, or video), presented using HTML.
 
 ## Database Structure
 
@@ -123,3 +137,12 @@ The information we need to store on the device would look something like this (a
 Where:
 
 - The last visited / current event is the last in the array (i.e. we can treat the array as a stack and push/pop events from it)
+
+## Helpful Resources
+
+- [Historic England's Walk History App](https://historicengland.org.uk/get-involved/visit/walking-tours/walk-history-app/)
+- [Google Clothing Store Locator Example](https://developers.google.com/maps/solutions/store-locator/clothing-store-locator)
+- [Working with Google Markers](https://developers.google.com/maps/documentation/javascript/markers)
+- [Working with Google Info boxes](https://developers.google.com/maps/documentation/javascript/infowindows)
+- [Snazzy Maps](https://snazzymaps.com/) for styling the map to look cool
+- [Google Map Simple Overlay](https://developers.google.com/maps/documentation/javascript/examples/overlay-simple)
