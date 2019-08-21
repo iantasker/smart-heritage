@@ -8,17 +8,25 @@ use App\Models\Plot;
 class Narrative extends Eloquent
 {
   protected $fillable = ['name', 'author', 'image', 'summary', 'event_id'];
-  protected $maxRange = 150; // Meters
 
   public function events()
   {
     return $this->hasMany(Event::class);
   }
 
-  public function closeTo($lat, $lng)
+  public function startEvent()
   {
-    return DB::table('narratives')
-      ->join('events', 'events.id', '=', 'narratives.event_id')
-      ->whereRaw("ST_Distance_Sphere(point(events.lng, events.lat), point(?, ?)) < $maxRange", [ $lng, $lat ]);
+    return $this->events()->where('is_start', true)->first();
+  }
+
+  public function scopeCloseTo($query, $lat, $lng)
+  {
+    $maxRange = config('geolocation.max_range');
+    $range = isset($range) && $range <= $maxRange ? $range : $maxRange;
+
+    return $query
+      ->join('events', 'narratives.id', '=', 'events.narrative_id')
+      ->where('events.is_start', true)
+      ->whereRaw("ST_Distance_Sphere(point(events.lng, events.lat), point(?, ?)) < $range", [ $lng, $lat ]);
   }
 }

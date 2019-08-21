@@ -8,6 +8,9 @@ use App\Models\Event;
 use App\Models\Narrative;
 use App\Models\Plot;
 
+use App\Http\Resources\NarrativeResource;
+use App\Http\Resources\EventResource;
+
 class NarrativeController extends Controller
 {
   public function index(Request $request) {
@@ -16,24 +19,12 @@ class NarrativeController extends Controller
 
     $narratives = Narrative::with('events')->closeTo($lat, $lng)->get();
 
-    return $narratives->toJson();
-  }
-
-  public function show(Request $request, $narrativeId) {
-    $narrative = Narrative::with('events')->findOrFail($narrativeId);
-
-    return $narrative->toJson();
+    return NarrativeResource::collection($narratives);
   }
 
   public function events(Request $request, $narrativeId) {
     $events = Event::where('narrative_id', $narrativeId)->get();
 
-    return $events->toJson();
-  }
-
-  public function event(Request $request, $narrativeId, $eventId) {
-    $event = Event::where('narrative_id', $narrativeId)->findOrFail($eventId);
-
-    return $event->toJson();
+    return EventResource::collection($events);
   }
 }

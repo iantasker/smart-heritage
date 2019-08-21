@@ -160,3 +160,8 @@ docker-compose exec app bin/rebuild
 docker-compose exec app npm install
 docker-compose exec app npm run watch-poll
 ```
+
+Example URLs:
+
+- https://smart-heritage.lvh.me/api/narratives?lat=50.855434&lng=0.576339 (narratives near me)
+- https://smart-heritage.lvh.me/api/narratives/1/events (events in the selected narrative)

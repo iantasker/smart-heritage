@@ -13,4 +13,14 @@ class Event extends Eloquent
   {
       return $this->belongsTo(Narrative::class);
   }
+
+  public function scopeCloseTo($query, $narrativeId, $lat, $lng, $range = null)
+  {
+    $maxRange = config('geolocation.max_range');
+    $range = isset($range) && $range <= $maxRange ? $range : $maxRange;
+
+    return $query
+      ->where('narrative_id', $narrativeId)
+      ->whereRaw("ST_Distance_Sphere(point(events.lng, events.lat), point(?, ?)) < $range", [ $lng, $lat ]);
+  }
 }

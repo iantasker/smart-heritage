@@ -18,6 +18,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('narratives', 'NarrativeController@index');
-Route::get('narratives/{narrativeId}', 'NarrativeController@show');
 Route::get('narratives/{narrativeId}/events', 'NarrativeController@events');
-Route::get('narratives/{narrativeId}/events/{eventId}', 'NarrativeController@event');
