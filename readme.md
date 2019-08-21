@@ -146,3 +146,17 @@ Where:
 - [Working with Google Info boxes](https://developers.google.com/maps/documentation/javascript/infowindows)
 - [Snazzy Maps](https://snazzymaps.com/) for styling the map to look cool
 - [Google Map Simple Overlay](https://developers.google.com/maps/documentation/javascript/examples/overlay-simple)
+
+## Dev stuff
+
+Install PHP using `PHP_WITHOUT_PEAR=yes asdf install php 7.2.14`
+
+### Running locally
+
+```
+docker-compose up
+docker-compose exec app composer install
+docker-compose exec app bin/rebuild
+docker-compose exec app npm install
+docker-compose exec app npm run watch-poll
+```

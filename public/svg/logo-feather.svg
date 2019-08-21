@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   aria-hidden="true"
+   focusable="false"
+   data-prefix="fad"
+   data-icon="map-marker"
+   class="svg-inline--fa fa-map-marker fa-w-12"
+   role="img"
+   viewBox="0 0 384 512"
+   version="1.1"
+   id="svg8"
+   sodipodi:docname="logo2.svg"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)">
+  <title
+     id="title4643">Smart Heritage</title>
+  <metadata
+     id="metadata14">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>Smart Heritage</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs12" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="3240"
+     inkscape:window-height="2066"
+     id="namedview10"
+     showgrid="false"
+     inkscape:zoom="1.3037281"
+     inkscape:cx="211.48929"
+     inkscape:cy="270.67647"
+     inkscape:window-x="558"
+     inkscape:window-y="1618"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg8" />
+  <g
+     class="fa-group"
+     id="g6"
+     style="fill:#344C56;fill-opacity:1">
+    <path
+       class="fa-secondary"
+       fill="currentColor"
+       d="M384 192c0 77.41-27 99-172.27 309.67a24 24 0 0 1-39.46 0C27 291 0 269.41 0 192 0 86 86 0 192 0s192 86 192 192z"
+       opacity="0.4"
+       id="path2"
+       style="fill:#344C56;fill-opacity:1" />
+    <path
+       class="fa-primary"
+       fill="currentColor"
+       d=""
+       id="path4"
+       style="fill:#344C56;fill-opacity:1" />
+  </g>
+  <path
+     style="opacity:0.81944442;fill:#101B2D;fill-opacity:1;stroke-width:0.28116098"
+     d="m 105.2083,290.96976 c -1.92911,-0.4149 -3.31293,-1.25596 -4.74695,-2.88509 -1.38917,-1.57819 -1.99738,-3.32465 -1.99738,-5.73548 0,-3.78239 -3.528824,-0.006 50.03018,-53.53334 39.84815,-39.82425 48.44745,-48.55019 48.82827,-49.54735 1.06043,-2.77669 -0.10353,-5.96077 -2.67532,-7.31852 -1.47375,-0.77805 -3.73168,-0.87286 -5.30687,-0.22283 -0.74094,0.30576 -10.63829,10.0214 -33.98969,33.36566 l -32.94436,32.93429 -0.23263,-1.10244 c -0.12795,-0.60634 -0.23255,-5.46746 -0.23244,-10.80248 2.2e-4,-10.86508 0.2683,-13.88594 1.99022,-22.42609 3.06374,-15.19522 9.18447,-28.32134 17.94578,-38.48534 3.93818,-4.56868 38.8249,-39.19849 42.7627,-42.44779 1.85566,-1.5312 4.44938,-3.55673 5.76381,-4.50117 21.30709,-15.30949 43.91584,-18.55884 63.4018,-9.11213 5.99956,2.90855 10.72876,6.32603 15.74501,11.37786 8.48698,8.54717 13.51428,18.26275 15.64941,30.24351 0.57886,3.24815 0.48463,13.46656 -0.15687,17.01024 -1.39777,7.7214 -4.0773,15.22352 -7.89441,22.10268 l -1.76352,3.1782 -24.14496,8.07187 -24.14496,8.07187 17.85373,0.0936 17.85372,0.0936 -8.43483,8.47918 -8.43483,8.47916 -26.85087,8.91767 c -14.76799,4.90472 -26.97108,9.02837 -27.11798,9.16368 -0.15288,0.14081 7.35582,0.24602 17.55742,0.24602 h 17.82453 l -0.96892,1.01128 c -4.1069,4.28645 -15.05182,11.25392 -22.47774,14.30921 -6.29213,2.58881 -14.32169,4.89627 -21.04048,6.04645 -14.31099,2.44985 -30.35146,2.14657 -42.22075,-0.79829 l -3.23335,-0.80221 -12.93341,12.85669 c -11.87792,11.80748 -13.04813,12.89199 -14.33921,13.28919 -2.14375,0.6595 -3.2297,0.74302 -4.92385,0.37864 z"
+     id="path4656"
+     inkscape:connector-curvature="0" />
+</svg>

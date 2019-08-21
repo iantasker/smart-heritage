@@ -1,0 +1,22 @@
+#!/bin/bash
+
+echo ""
+echo ""
+echo "Clearing *.log files..."
+find . -name "*.log" -type f -delete
+
+echo ""
+echo ""
+echo "Wiping database..."
+mysql --host=db.smart-heritage.lvh.me --user='homestead' --password='secret' -e "drop database if exists homestead; create database homestead;"
+
+echo ""
+echo ""
+echo "Regenerating App key..."
+php artisan key:generate
+
+
+echo ""
+echo ""
+echo "Migrating and seeding..."
+php artisan migrate --seed

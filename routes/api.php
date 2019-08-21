@@ -16,3 +16,8 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('narratives', 'NarrativeController@index');
+Route::get('narratives/{narrativeId}', 'NarrativeController@show');
+Route::get('narratives/{narrativeId}/events', 'NarrativeController@events');
+Route::get('narratives/{narrativeId}/events/{eventId}', 'NarrativeController@event');
