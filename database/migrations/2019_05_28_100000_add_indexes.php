@@ -13,14 +13,11 @@ class AddIndexes extends Migration
    */
   public function up()
   {
-    Schema::table('narratives', function (Blueprint $table) {
-      $table->foreign('event_id')->references('id')->on('events')->onDelete('cascade');
-    });
-
     Schema::table('events', function (Blueprint $table) {
       $table->foreign('narrative_id')->references('id')->on('narratives')->onDelete('cascade');
       $table->index('lat');
       $table->index('lng');
+      $table->index('is_start');
     });
 
     Schema::table('plots', function (Blueprint $table) {
@@ -43,10 +40,9 @@ class AddIndexes extends Migration
 
     Schema::table('events', function (Blueprint $table) {
       $table->dropForeign(['narrative_id']);
-    });
-
-    Schema::table('narratives', function (Blueprint $table) {
-      $table->dropForeign(['event_id']);
+      $table->dropForeign(['lat']);
+      $table->dropForeign(['lng']);
+      $table->dropForeign(['is_start']);
     });
   }
 }
