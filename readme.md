@@ -41,8 +41,8 @@ From the book listing on [Abe Books](https://www.abebooks.com/first-edition/Suns
 
 #### Colour Palette
 
-| Indian Red | Brown | Gray | Beige | Black |
-| --- | --- | --- | --- | --- |
+| Indian Red                                           | Brown                                                | Gray                                                 | Beige                                                | Black                                                |
+| ---------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- |
 | <div style="background-color:#DC6561;">#DC6561</div> | <div style="background-color:#912926;">#912926</div> | <div style="background-color:#7F726E;">#7F726E</div> | <div style="background-color:#F4F1E5;">#F4F1E5</div> | <div style="background-color:#2B211E;">#2B211E</div> |
 
 ### A Voyage in the Sunbeam
@@ -53,8 +53,8 @@ From the book listing on [Abe Books](https://www.abebooks.com/servlet/BookDetail
 
 #### Colour Palette
 
-| Beige | Midnight Blue | Dark Slate Gray | Black | Gray |
-| --- | --- | --- | --- | --- |
+| Beige                                                | Midnight Blue                                        | Dark Slate Gray                                      | Black                                                | Gray                                                 |
+| ---------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- |
 | <div style="background-color:#EBDABF;">#EBDABF</div> | <div style="background-color:#101B2D;">#101B2D</div> | <div style="background-color:#344C56;">#344C56</div> | <div style="background-color:#24221F;">#24221F</div> | <div style="background-color:#898575;">#898575</div> |
 
 There is a lot of "naval" graphics out there, which we can use with attribution etc, but the above image is really good as a kind of mood board. That is, I think the colours (browny-grey, red and gold) and art style spark the right feel of "curiosities" and "adventure" or "discovery". So I think we should look to use this as our starting point for styling the page.
@@ -146,6 +146,13 @@ Where:
 - [Working with Google Info boxes](https://developers.google.com/maps/documentation/javascript/infowindows)
 - [Snazzy Maps](https://snazzymaps.com/) for styling the map to look cool
 - [Google Map Simple Overlay](https://developers.google.com/maps/documentation/javascript/examples/overlay-simple)
+
+## Notes
+
+- Font Awesome icons used under my personal license for temporary use, but I'd rather we sort out other things (JN)
+- I need fonts, text, images, videos, ... content
+- Need to write a disclaimer/terms regarding collection of location data (not sent to server etc)
+- Need to write introduction
 
 ## Dev stuff
 
