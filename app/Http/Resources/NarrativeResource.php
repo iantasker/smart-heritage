@@ -24,9 +24,8 @@ class NarrativeResource extends JsonResource
             'author' => $this->author,
             'author_href' => $this->author_href,
             'summary' => $this->summary,
-            // 'events' => EventResource::collection($this->events),
-            'lat' => $this->startEvent()->lat,
-            'lng' => $this->startEvent()->lng,
+            'starts_at' => EventResource::collection($this->startEvents),
+            'map_icon_url' => $this->map_icon_url,
             'created_at' => $this->created_at->toIso8601String(),
             'updated_at' => $this->updated_at->toIso8601String(),
         ];

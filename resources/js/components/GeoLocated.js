@@ -1,5 +1,7 @@
 import React from 'react'
-import { geolocated } from 'react-geolocated';
+import { geolocated } from 'react-geolocated'
+import Alert from './Alert'
+import Loading from './Loading'
 import Map from './Map'
 
 const GeoLocated = geolocated({
@@ -13,20 +15,20 @@ const GeoLocated = geolocated({
     // suppressLocationOnMount: false,
     // geolocationProvider: navigator.geolocation,
     // isOptimisticGeolocationEnabled: true
-  })((props) => {
-  if (!props.isGeolocationAvailable) {
-     return (<div>Your browser does not support Geolocation</div>)
-  }
+})((props) => {
+    if (!props.isGeolocationAvailable) {
+        return <Alert>Your browser does not support Geolocation</Alert>
+    }
 
-  if (!props.isGeolocationEnabled) {
-    return (<div>Geolocation is not enabled</div>)
-  }
+    if (!props.isGeolocationEnabled) {
+        return <Alert>Geolocation is not enabled</Alert>
+    }
 
-  if (!props.coords) {
-    return (<div>Getting the location data&hellip;</div>)
-  }
+    if (!props.coords) {
+        return <Loading />
+    }
 
-  return <Map userCoords={{ lat: props.coords.latitude, lng: props.coords.longitude }} />
+    return <Map userCoords={{ lat: props.coords.latitude, lng: props.coords.longitude }} />
 })
 
 export default GeoLocated;

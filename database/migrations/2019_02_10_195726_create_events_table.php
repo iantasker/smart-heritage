@@ -21,6 +21,7 @@ class CreateEventsTable extends Migration
       $table->float('lat', 10, 6);
       $table->float('lng', 10, 6);
       $table->boolean('is_start')->default(false);
+      $table->string('map_icon_url')->default('/svg/fa/file-light.svg');
       $table->timestamps();
     });
   }

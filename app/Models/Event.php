@@ -8,6 +8,9 @@ use App\Models\Plot;
 class Event extends Eloquent
 {
   protected $fillable = ['narrative_id', 'name', 'content', 'lat', 'lng'];
+  protected $casts = [
+    'is_start' => 'boolean'
+  ];
 
   public function narrative()
   {
@@ -21,6 +24,6 @@ class Event extends Eloquent
 
     return $query
       ->where('narrative_id', $narrativeId)
-      ->whereRaw("ST_Distance_Sphere(point(events.lng, events.lat), point(?, ?)) < $range", [ $lng, $lat ]);
+      ->whereRaw("ST_Distance_Sphere(point(lng, lat), point(?, ?)) < $range", [ $lng, $lat ]);
   }
 }
