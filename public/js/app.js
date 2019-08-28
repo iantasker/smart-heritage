@@ -104089,14 +104089,19 @@ function (_Component) {
   }
 
   _createClass(LocationWatcher, [{
+    key: "defaultCoords",
+    value: function defaultCoords() {
+      return {
+        lat: 50.854650,
+        lng: 0.576490
+      };
+    }
+  }, {
     key: "resetState",
     value: function resetState() {
       return {
         watchId: null,
-        coords: {
-          lat: 50.854650,
-          lng: 0.576490
-        },
+        coords: this.defaultCoords(),
         error: null,
         narratives: [],
         selectedNarrativeId: null,
@@ -104344,28 +104349,41 @@ function (_Component) {
       }
     }
   }, {
+    key: "isCoordsInBounds",
+    value: function isCoordsInBounds() {
+      var _this$state3 = this.state,
+          coords = _this$state3.coords,
+          watchId = _this$state3.watchId;
+      var top = 50.855676;
+      var bottom = 50.853874;
+      var left = 0.575935;
+      var right = 0.577877;
+      return watchId && (coords.lat > top || coords.lat < bottom || coords.lng > right || coords.lng < left);
+    }
+  }, {
     key: "render",
     value: function render() {
-      var _this$state3 = this.state,
-          error = _this$state3.error,
-          coords = _this$state3.coords,
-          watchId = _this$state3.watchId,
-          selectedNarrativeId = _this$state3.selectedNarrativeId;
+      var _this$state4 = this.state,
+          error = _this$state4.error,
+          coords = _this$state4.coords,
+          selectedNarrativeId = _this$state4.selectedNarrativeId;
 
       if (error) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Alert__WEBPACK_IMPORTED_MODULE_9__["default"], null, error);
       }
 
+      var coordsInBounds = this.isCoordsInBounds();
+      var centerAt = coordsInBounds ? coords : this.defaultCoords();
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_google_maps__WEBPACK_IMPORTED_MODULE_3__["GoogleMap"], {
         defaultZoom: 18,
-        center: coords,
+        center: centerAt,
         options: {
           disableDefaultUI: true,
           fullscreenControl: true,
           zoomControl: true,
           styles: _mapstyle__WEBPACK_IMPORTED_MODULE_5__["MAP_STYLE"]
         }
-      }, selectedNarrativeId ? this.makeEventMarkers() : this.makeNarrativeMarkers(), watchId && this.makeCircle()), this.renderNarrative());
+      }, selectedNarrativeId ? this.makeEventMarkers() : this.makeNarrativeMarkers(), coordsInBounds && this.makeCircle()), this.renderNarrative());
     }
   }]);
 

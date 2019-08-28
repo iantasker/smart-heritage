@@ -17,13 +17,17 @@ class LocationWatcher extends Component {
         this.state = this.resetState()
     }
 
+    defaultCoords() {
+        return {
+            lat: 50.854650,
+            lng: 0.576490
+        }
+    }
+
     resetState() {
         return {
             watchId: null,
-            coords: {
-                lat: 50.854650,
-                lng: 0.576490
-            },
+            coords: this.defaultCoords(),
             error: null,
             narratives: [],
             selectedNarrativeId: null,
@@ -182,18 +186,32 @@ class LocationWatcher extends Component {
         }
     }
 
+    isCoordsInBounds() {
+        const { coords, watchId } = this.state
+
+        const top = 50.855676
+        const bottom = 50.853874
+        const left = 0.575935
+        const right = 0.577877
+
+        return watchId && ((coords.lat > top || coords.lat < bottom) || (coords.lng > right || coords.lng < left))
+    }
+
     render() {
-        const { error, coords, watchId, selectedNarrativeId } = this.state
+        const { error, coords, selectedNarrativeId } = this.state
 
         if (error) {
             return <Alert>{error}</Alert>
         }
 
+        const coordsInBounds = this.isCoordsInBounds()
+        const centerAt = coordsInBounds ? coords : this.defaultCoords()
+
         return (
             <div>
                 <GoogleMap
                     defaultZoom={18}
-                    center={coords}
+                    center={centerAt}
                     options={{
                         disableDefaultUI: true,
                         fullscreenControl: true,
@@ -202,7 +220,7 @@ class LocationWatcher extends Component {
                     }}
                 >
                     {selectedNarrativeId ? this.makeEventMarkers() : this.makeNarrativeMarkers()}
-                    {watchId && this.makeCircle()}
+                    {coordsInBounds && this.makeCircle()}
                 </GoogleMap>
                 {this.renderNarrative()}
             </div>
