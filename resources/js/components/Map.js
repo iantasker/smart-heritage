@@ -194,7 +194,7 @@ class LocationWatcher extends Component {
         const left = 0.575935
         const right = 0.577877
 
-        return watchId && ((coords.lat < top || coords.lat > bottom) || (coords.lng < right || coords.lng > left))
+        return watchId && coords.lat <= top && coords.lat >= bottom && coords.lng <= right && coords.lng >= left
     }
 
     render() {
