@@ -1,0 +1,1 @@
+This sound project for mobile phones will introduce unusual people and curious tales from the streets around us. "Everywhere 'ordinary' people are being or doing something a little 'extraordinary'. This is a celebration of tiny tales of local wonder folk," said Rosanna.

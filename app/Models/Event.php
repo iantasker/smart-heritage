@@ -14,7 +14,17 @@ class Event extends Eloquent
 
   public function narrative()
   {
-      return $this->belongsTo(Narrative::class);
+    return $this->belongsTo(Narrative::class);
+  }
+
+  public function nextEvents()
+  {
+    return $this->belongsToMany(Event::class, 'plots', 'previous_event_id', 'next_event_id');
+  }
+
+  public function previousEvents()
+  {
+    return $this->belongsToMany(Event::class, 'plots', 'next_event_id', 'previous_event_id');
   }
 
   public function scopeCloseTo($query, $narrativeId, $lat, $lng, $range = null)

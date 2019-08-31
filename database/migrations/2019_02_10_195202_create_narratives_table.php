@@ -18,7 +18,7 @@ class CreateNarrativesTable extends Migration
       $table->string('name');
       $table->string('author');
       $table->string('author_href');
-      $table->string('summary');
+      $table->text('author_bio')->nullable();
       $table->timestamps();
     });
   }

@@ -20,8 +20,13 @@
     }
 }
 
-.footer-img {
-    @extend .img-thumbnail;
+.event-icon {
+    width: 32px;
+    height: 32px;
+}
+
+.support-img {
+    // @extend .img-thumbnail;
     width: 100%;
-    max-width: 120px;
+    max-width: 100px;
 }

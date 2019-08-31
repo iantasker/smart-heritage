@@ -18,10 +18,10 @@ class CreateEventsTable extends Migration
       $table->integer('narrative_id')->unsigned();
       $table->string('name');
       $table->text('content');
-      $table->float('lat', 10, 6);
-      $table->float('lng', 10, 6);
+      $table->float('lat', 10, 6)->nullable();
+      $table->float('lng', 10, 6)->nullable();
       $table->boolean('is_start')->default(false);
-      $table->string('map_icon_url')->default('/svg/fa/file-light.svg');
+      $table->string('icon_url')->default('/img/msl_projects_circle.png');
       $table->timestamps();
     });
   }

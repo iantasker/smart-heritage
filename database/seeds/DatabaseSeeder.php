@@ -15,145 +15,170 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->interviews();
+        $this->beneathWater();
+        $this->airTime();
+        $this->ordinaryExtraordinary();
         $this->msl();
         // $this->wrnv();
     }
 
-    private function interviews()
+    private function beneathWater()
     {
         $narrative = new Narrative();
-        $narrative->name = 'Interviews';
-        $narrative->author = 'Rosanna Lowe';
-        $narrative->author_href = 'http://rosannalowe.com';
-        $narrative->summary = '';
+        $narrative->name = 'Beneath Water';
+        $narrative->author = 'Kevin Grist';
+        $narrative->author_href = 'https://www.sparkedecho.org';
+        $narrative->author_bio = File::get(database_path('seeds/air_time/author_bio.md'));
         $narrative->save();
 
         $event = new Event();
         $event->narrative_id = $narrative->id;
-        $event->name = 'The Lightning Lady';
-        $event->content = 'Lightning never strikes twice<br/>
-Oh, it did.<br/>
-First time I was eight<br/>
-Flung sky high<br/>
-Electrified<br/>
-Died<br/>
-For two minutes<br/>
-Dad<br/>
-Revived me<br/>
-But the bolt<br/>
-Made me feel more alive than ever
-
-Once the lightning<br/>
-Has stung you<br/>
-Sung you<br/>
-Blistered through you<br/>
-It has claimed you<br/>
-It will find you again
-
-Second time<br/>
-I was sixteen<br/>
-Glimpsed the flash of a world<br/>
-Of pure energy and light<br/>
-Shocked again<br/>
-To be lightning\'s dumbstruck bride
-
-At first didn\'t know my own power<br/>
-Shocked colleagues as I shook their hands<br/>
-Gave lovers an electric kiss<br/>
-Now I crackle at my human husband<br/>
-I fizzle at my fleshbound children<br/>
-To hug I hold a wooden spoon<br/>
-At work I wear a "strap-on"<br/>
-To tap upon the keyboard<br/>
-In case I blow a fuse<br/>
-Always needing to ground myself<br/>
-So the heavenly power inside me<br/>
-Is earthed
-
-People say: "You\'re amazing"<br/>
-"No" I say<br/>
-"It<br/>
-Just<br/>
-Hurts."
-
-**Example embedded content from SoundCloud, not final content!**
-
-<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/394114131&color=%23ff5500&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false"></iframe>
-
-**Example embedded content from SoundCloud, not final content!**';
-        $event->lat = 50.855323;
-        $event->lng = 0.577022;
+        $event->name = 'Beneath Water';
+        $event->content = File::get(database_path('seeds/beneath_water/index.md'));
+        $event->lat = 50.855585;
+        $event->lng = 0.576512;
         $event->is_start = true;
-        $event->map_icon_url = '/svg/fa/thunderstorm.svg';
+        $event->icon_url = '/img/msl_projects_circle.png';
         $event->save();
+    }
+
+    private function airTime()
+    {
+        $narrative = new Narrative();
+        $narrative->name = 'air time';
+        $narrative->author = 'Judith Ricketts';
+        $narrative->author_href = 'https://www.linkedin.com/in/lovespictures/';
+        $narrative->author_bio = File::get(database_path('seeds/air_time/author_bio.md'));
+        $narrative->save();
+
+        $event = new Event();
+        $event->narrative_id = $narrative->id;
+        $event->name = 'air time';
+        $event->content = File::get(database_path('seeds/air_time/index.md'));
+        $event->lat = 50.854639;
+        $event->lng = 0.576489;
+        $event->is_start = true;
+        $event->icon_url = '/img/msl_projects_circle.png';
+        $event->save();
+    }
+
+    private function ordinaryExtraordinary()
+    {
+        $narrative = new Narrative();
+        $narrative->name = 'Ordinary Extraordinary';
+        $narrative->author = 'Rosanna Lowe';
+        $narrative->author_href = 'http://rosannalowe.com';
+        $narrative->author_bio = File::get(database_path('seeds/ordinary_extraordinary/author_bio.md'));
+        $narrative->save();
+
+        $start_event = new Event();
+        $start_event->narrative_id = $narrative->id;
+        $start_event->name = 'Ordinary Extraordinary';
+        $start_event->content = File::get(database_path('seeds/air_time/index.md'));
+        $start_event->lat = 50.855323;
+        $start_event->lng = 0.577022;
+        $start_event->is_start = true;
+        $start_event->icon_url = '/img/msl_projects_circle.png';
+        $start_event->save();
+
+        // $event = new Event();
+        // $event->narrative_id = $narrative->id;
+        // $event->name = '???';
+        // $event->content = File::get(database_path('seeds/ordinary_extraordinary/???.md'));
+        // $event->is_start = false;
+        // $event->icon_url = '/img/msl_projects_circle.png';
+        // $event->save();
+        // $this->makePlot($start_event, $event);
+
+        $event = new Event();
+        $event->narrative_id = $narrative->id;
+        $event->name = 'Batwoman of Hastings';
+        $event->content = File::get(database_path('seeds/ordinary_extraordinary/2.batwoman_of_hastings.md'));
+        $event->is_start = false;
+        $event->icon_url = '/img/msl_projects_circle.png';
+        $event->save();
+        $this->makePlot($start_event, $event);
+
+        $event = new Event();
+        $event->narrative_id = $narrative->id;
+        $event->name = 'The Lightning Lady';
+        $event->content = File::get(database_path('seeds/ordinary_extraordinary/3.the_lightning_lady.md'));
+        $event->is_start = false;
+        $event->icon_url = '/img/msl_projects_circle.png';
+        $event->save();
+        $this->makePlot($start_event, $event);
+
+        $event = new Event();
+        $event->narrative_id = $narrative->id;
+        $event->name = 'Technicolour Dreamboy';
+        $event->content = File::get(database_path('seeds/ordinary_extraordinary/4.technicolour_dreamboy.md'));
+        $event->is_start = false;
+        $event->icon_url = '/img/msl_projects_circle.png';
+        $event->save();
+        $this->makePlot($start_event, $event);
+
+        $event = new Event();
+        $event->narrative_id = $narrative->id;
+        $event->name = 'The Disappearing Headmaster';
+        $event->content = File::get(database_path('seeds/ordinary_extraordinary/5.the_disappearing_headmaster.md'));
+        $event->is_start = false;
+        $event->icon_url = '/img/msl_projects_circle.png';
+        $event->save();
+        $this->makePlot($start_event, $event);
+
+        $event = new Event();
+        $event->narrative_id = $narrative->id;
+        $event->name = 'The Honey Hunger Striker';
+        $event->content = File::get(database_path('seeds/ordinary_extraordinary/6.the_honey_hunger_striker.md'));
+        $event->is_start = false;
+        $event->icon_url = '/img/msl_projects_circle.png';
+        $event->save();
+        $this->makePlot($start_event, $event);
+
+        $event = new Event();
+        $event->narrative_id = $narrative->id;
+        $event->name = 'The Microwaved Woman';
+        $event->content = File::get(database_path('seeds/ordinary_extraordinary/7.the_microwaved_woman.md'));
+        $event->is_start = false;
+        $event->icon_url = '/img/msl_projects_circle.png';
+        $event->save();
+        $this->makePlot($start_event, $event);
+
+        $event = new Event();
+        $event->narrative_id = $narrative->id;
+        $event->name = 'The Bee Landlady';
+        $event->content = File::get(database_path('seeds/ordinary_extraordinary/8.the_bee_landlady.md'));
+        $event->is_start = false;
+        $event->icon_url = '/img/msl_projects_circle.png';
+        $event->save();
+        $this->makePlot($start_event, $event);
     }
 
     private function msl()
     {
         $narrative = new Narrative();
-        $narrative->name = 'Rock Alley';
-        $narrative->author = 'MSL Projects';
-        $narrative->author_href = 'http://www.mslprojects.co.uk/storylines';
-        $narrative->summary = '';
+        $narrative->name = 'MSL Projects';
+        $narrative->author = 'MSL';
+        $narrative->author_href = 'http://www.mslprojects.co.uk';
+        $narrative->author_bio = '';
         $narrative->save();
 
         $event = new Event();
         $event->narrative_id = $narrative->id;
-        $event->name = 'Rock Alley';
-        $event->content = '**On 10th September 2017 [Storylines](http://www.mslprojects.co.uk/storylines) launched Rock Alley in Hastings as a new space for storytellers, artists and community.**
-
-Rock Alley is a space where the built environment meets the natural one, where the invisible past and the present are embedded in the landscape, but which is largely unknown and poorly used. On the day we had a programme for artists, historians and storytellers who created and presented a series of events for a promenading audience – a show and tell of the history of the place; for a day, bringing it back to life.
-
-<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/231704848?byline=0&portrait=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>';
+        $event->name = 'MSL Projects';
+        $event->content = File::get(database_path('seeds/msl/index.md'));;
         $event->lat = 50.855434;
         $event->lng = 0.576339;
         $event->is_start = true;
-        $event->map_icon_url = '/img/msl_projects_circle.png';
+        $event->icon_url = '/img/msl_projects_circle.png';
         $event->save();
     }
 
-//     private function wrnv()
-//     {
-//         $narrative = new Narrative();
-//         $narrative->name = 'Hastings Rocks!';
-//         $narrative->author = 'White Rock Neighbourhood Ventures';
-//         $narrative->author_href = 'https://www.rockhouse.org.uk';
-//         $narrative->summary = '';
-//         $narrative->save();
-
-//         $event = new Event();
-//         $event->narrative_id = $narrative->id;
-//         $event->name = 'Rock House';
-//         $event->content = '[Rock House](https://www.rockhouse.org.uk/) is an ambitious mixed-use project that breathes new life into a previously underused building situated in the White Rock area of Hastings town centre. It’s nine floors are home to living space, work space and a community hub. Those who live and work here must meet certain criteria of **need**, **enthusiasm** and **contribution** to the building and the wider community.';
-//         $event->lat = 50.855583;
-//         $event->lng = 0.576131;
-//         $event->is_start = true;
-//         $event->map_icon_url = '/svg/fa/hand-rock.svg';
-//         $event->save();
-
-//         $event = new Event();
-//         $event->narrative_id = $narrative->id;
-//         $event->name = 'The Observer Building';
-//         $event->content = '[The Observer Building](https://theobserverbuilding.org.uk/) has been in a state of dereliction and decay for 34 years.
-
-// We’re using our phased development approach to put the building to immediate productive use and protect the building as a community asset. We want to revive it as long-term, genuinely affordable housing and workspaces and a vibrant leisure destination, providing opportunities for local people and working with partners throughout the project.';
-//         $event->lat = 50.855566;
-//         $event->lng = 0.575872;
-//         $event->is_start = false;
-//         $event->map_icon_url = '/svg/fa/newspaper.svg';
-//         $event->save();
-
-//         $event = new Event();
-//         $event->narrative_id = $narrative->id;
-//         $event->name = 'Gotham Alley';
-//         $event->content = '[Gothem Alley](https://www.facebook.com/gothamalley/) is an outdoor gallery space bringing together community and events groups
-
-// <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/231704848?byline=0&portrait=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>';
-//         $event->lat = 50.855434;
-//         $event->lng = 0.576339;
-//         $event->is_start = false;
-//         $event->map_icon_url = '/svg/fa/digging.svg';
-//         $event->save();
-//     }
+    private function makePlot($start_event, $next_event)
+    {
+        $plot = new Plot();
+        $plot->previous_event_id = $start_event->id;
+        $plot->next_event_id = $next_event->id;
+        $plot->save();
+    }
 }

@@ -2,12 +2,14 @@ import React, { Component } from 'react'
 import { compose, withProps } from 'recompose'
 import axios from 'axios';
 import { withScriptjs, withGoogleMap, GoogleMap, Marker, Circle } from 'react-google-maps'
+import ReactGA from 'react-ga'
 import { GOOGLE_MAPS_API_KEY } from '../variables'
 import { MAP_STYLE } from '../mapstyle'
 import isEmpty from 'lodash/isEmpty'
 import find from 'lodash/find'
+import filter from 'lodash/filter'
 import map from 'lodash/map'
-import Alert from './Alert'
+import Error from './Error'
 import Loading from './Loading'
 import Narrative from './Narrative'
 
@@ -17,10 +19,18 @@ class LocationWatcher extends Component {
         this.state = this.resetState()
     }
 
+    sendEvent(action, label) {
+        ReactGA.event({
+            category: 'map',
+            action,
+            label
+        });
+    };
+
     defaultCoords() {
         return {
-            lat: 50.854650,
-            lng: 0.576490
+            lat: 50.855001,
+            lng: 0.576780
         }
     }
 
@@ -55,9 +65,12 @@ class LocationWatcher extends Component {
         const { narratives } = this.state
         let markers = []
         narratives.forEach(narrative => {
-            markers = markers.concat(map(narrative.starts_at, (event) => this.makeMarker('nrt', event, (evt) => {
+            let mappableEvents = filter(narrative.starts_at, this.eventIsMappable)
+            markers = markers.concat(map(mappableEvents, (event) => this.makeMarker('nrt', event, (evt) => {
                 this.setState({ selectedNarrativeId: narrative.id, selectedEventId: event.id })
                 this.fetch()
+                this.sendEvent('narrative', narrative.name)
+                this.sendEvent('event', event.name)
             })))
         })
         return markers
@@ -65,24 +78,40 @@ class LocationWatcher extends Component {
 
     makeEventMarkers() {
         const { events } = this.state
-        const markers = map(events, (event) => this.makeMarker('evt', event, (evt) => {
+        let mappableEvents = filter(events, this.eventIsMappable)
+        const markers = map(mappableEvents, (event) => this.makeMarker('evt', event, (evt) => {
             this.setState({ selectedEventId: event.id })
+            this.sendEvent('event', event.name)
         }))
         return markers
     }
 
-    makeMarker(keyPrefix, narrativeOrEvent, onClick) {
+    eventIsMappable(event) {
+        return event.coords.lat && event.coords.lng
+    }
+
+    makeMarker(keyPrefix, event, onClick) {
         const icon = {
-            url: narrativeOrEvent.map_icon_url,
+            url: event.icon_url,
             anchor: new google.maps.Point(16, 16),
             scaledSize: new google.maps.Size(32, 32),
-            size: new google.maps.Size(32, 32)
+            size: new google.maps.Size(32, 32),
+            labelOrigin: new google.maps.Point(16, 40)
+        }
+
+        const label = {
+            // color:
+            // fontFamily:
+            // fontSize:
+            // fontWeight:
+            text: event.name
         }
 
         return <Marker
-            key={`${keyPrefix}-${narrativeOrEvent.id}`}
-            position={narrativeOrEvent.coords}
-            title={narrativeOrEvent.name}
+            key={`${keyPrefix}-${event.id}`}
+            position={event.coords}
+            title={event.name}
+            label={label}
             icon={icon}
             onClick={onClick}
         />
@@ -120,16 +149,11 @@ class LocationWatcher extends Component {
             const watchId = provider.watchPosition((position) => this.handlePositionChange(position), (error) => this.handlePositionError(error), geo_options)
             this.setState({ watchId })
         }
-
         this.fetch()
     }
 
     componentWillUnmount() {
-        const { watchId } = this.state
-        if (this.canGeolocate()) {
-            const provider = this.geolocationProvider()
-            provider.clearWatch(watchId)
-        }
+        this.stopWatchingPosition()
         this.setState(this.resetState())
     }
 
@@ -137,8 +161,19 @@ class LocationWatcher extends Component {
         this.setState({ coords: { lat: position.coords.latitude, lng: position.coords.longitude }, error: null })
     }
 
+    stopWatchingPosition() {
+        const { watchId } = this.state
+        if (this.canGeolocate()) {
+            const provider = this.geolocationProvider()
+            provider.clearWatch(watchId)
+            this.setState({ watchId: null })
+        }
+    }
+
     handlePositionError(error) {
-        console.error(error.message)
+        if (error.message) {
+            console.error(error.message)
+        }
 
         const code = error.code
         let msg = ''
@@ -148,7 +183,9 @@ class LocationWatcher extends Component {
             case 3: msg = 'a timeout occurred'; break
             default: msg = 'an unknown error occurred'; break
         }
-        this.setState({ error: `'Acquisition of position failed because of ${msg}` })
+
+        this.setState({ error: `Acquisition of position failed because of ${msg}` })
+        this.stopWatchingPosition()
     }
 
     fetch() {
@@ -180,6 +217,13 @@ class LocationWatcher extends Component {
         if (narrative && event) {
             return <Narrative narrative={narrative} event={event} handleClear={() => {
                 this.setState({ selectedNarrativeId: null, selectedEventId: null })
+            }} handleChangeEvent={(nextEventId) => {
+                const nextEvent = find(events, { id: nextEventId })
+                if (!nextEvent) {
+                    return
+                }
+                this.setState({ selectedEventId: nextEvent.id })
+                this.sendEvent('event', nextEvent.name)
             }} />
         } else {
             return <div />
@@ -199,16 +243,12 @@ class LocationWatcher extends Component {
 
     render() {
         const { error, coords, selectedNarrativeId } = this.state
-
-        if (error) {
-            return <Alert>{error}</Alert>
-        }
-
         const coordsInBounds = this.isCoordsInBounds()
         const centerAt = coordsInBounds ? coords : this.defaultCoords()
 
         return (
             <div>
+                {error && <Error>{error}</Error>}
                 <GoogleMap
                     defaultZoom={18}
                     center={centerAt}

@@ -6,6 +6,8 @@ use Illuminate\Http\Resources\Json\JsonResource;
 
 use Carbon\Carbon;
 
+use App\Http\Resources\NextEventResource;
+
 class EventResource extends JsonResource
 {
     /**
@@ -25,7 +27,8 @@ class EventResource extends JsonResource
                 'lng' => $this->lng
             ],
             'is_start' => $this->is_start,
-            'map_icon_url' => $this->map_icon_url,
+            'icon_url' => $this->icon_url,
+            'next_events' => NextEventResource::collection($this->nextEvents),
             'created_at' => $this->created_at->toIso8601String(),
             'updated_at' => $this->updated_at->toIso8601String(),
         ];
