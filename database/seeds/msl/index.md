@@ -23,12 +23,12 @@ SmartHeritage was commissioned by <a href='https://www.mslprojects.co.uk/'>MSL</
 <div class="row justify-content-center py-2">
     <div class="col-auto text-center">
         <a href='https://www.mslprojects.co.uk/'>
-            <img src='/img/msl_projects.200x300.png' class='support-img' alt='MSL Projects' />
+            <img src='/img/msl_projects.200x300.png' class='m-2 support-img' alt='MSL Projects' />
         </a>
     </div>
     <div class="col-auto text-center">
         <a href='http://coastalcurrents.org.uk/'>
-            <img src='/img/coastal_currents.png' class='support-img' alt='Coastal Currents Arts Festival' />
+            <img src='/img/coastal_currents.png' class='m-2 support-img' alt='Coastal Currents Arts Festival' />
         </a>
     </div>
 </div>
@@ -38,39 +38,27 @@ SmartHeritage, and the artists work it showcases, is supported by <a href="https
 <div class="row justify-content-center py-2">
     <div class="col-auto text-center">
         <a href='https://www.artscouncil.org.uk/'>
-            <img src='/img/Arts Council grant_png_black.png' class='support-img' alt='Arts Council England' />
+            <img src='/img/Arts Council grant_png_black.png' class='m-2 support-img' alt='Arts Council England' />
         </a>
     </div>
     <div class="col-auto text-center">
         <a href='https://www.tnlcommunityfund.org.uk/funding/programmes/coastal-communities-fund'>
-            <img src='/img/Coastal Communities Fund logo_1.jpg' class='support-img' alt='Coastal Communities Fund' />
+            <img src='/img/Coastal Communities Fund logo_1.jpg' class='m-2 support-img' alt='Coastal Communities Fund' />
         </a>
     </div>
     <div class="col-auto text-center">
         <a href='https://www.eastsussex.gov.uk/leisureandtourism/arts/funding/east-sussex-arts-partnership/funding/'>
-            <img src='/img/EASP_logo_02_SPOT-1.gif' class='support-img' alt='East Sussex Arts Partnership' />
+            <img src='/img/EASP_logo_02_SPOT-1.gif' class='m-2 support-img' alt='East Sussex Arts Partnership' />
         </a>
     </div>
     <div class="col-auto text-center">
         <a href='https://www.hastings.gov.uk/'>
-            <img src='/img/HBC logo.png' class='support-img' alt='Hastings Borough Council' />
+            <img src='/img/HBC logo.png' class='m-2 support-img' alt='Hastings Borough Council' />
         </a>
     </div>
     <div class="col-auto text-center">
         <a href='https://www.thersa.org/'>
-            <img src='/img/rsa.200x300.png' class='support-img' alt='RSA: Royal Society for the encouragement of Arts, Manufactures and Commerce' />
+            <img src='/img/rsa.200x300.png' class='m-2 support-img' alt='RSA: Royal Society for the encouragement of Arts, Manufactures and Commerce' />
         </a>
     </div>
 </div>
-
-
-coastal_currents.png
-
-alley_association.png
-
-
-
-Coastal Communities Fund logo_1.jpg
-EASP_logo_02_SPOT-1.gif
-RSA.png
-HBC logo.png
