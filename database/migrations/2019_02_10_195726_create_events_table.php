@@ -21,7 +21,7 @@ class CreateEventsTable extends Migration
       $table->float('lat', 10, 6)->nullable();
       $table->float('lng', 10, 6)->nullable();
       $table->boolean('is_start')->default(false);
-      $table->string('icon_url')->default('/img/msl_projects_circle.png');
+      $table->string('icon_url')->default('/img/msl_circle.png');
       $table->timestamps();
     });
   }

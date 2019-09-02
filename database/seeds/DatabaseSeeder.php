@@ -37,7 +37,7 @@ class DatabaseSeeder extends Seeder
         $event->lat = 50.855585;
         $event->lng = 0.576512;
         $event->is_start = true;
-        $event->icon_url = '/img/msl_projects_circle.png';
+        $event->icon_url = '/img/msl_circle.png';
         $event->save();
     }
 
@@ -57,7 +57,7 @@ class DatabaseSeeder extends Seeder
         $event->lat = 50.854639;
         $event->lng = 0.576489;
         $event->is_start = true;
-        $event->icon_url = '/img/msl_projects_circle.png';
+        $event->icon_url = '/img/msl_circle.png';
         $event->save();
     }
 
@@ -77,24 +77,24 @@ class DatabaseSeeder extends Seeder
         $start_event->lat = 50.855323;
         $start_event->lng = 0.577022;
         $start_event->is_start = true;
-        $start_event->icon_url = '/img/msl_projects_circle.png';
+        $start_event->icon_url = '/img/msl_circle.png';
         $start_event->save();
 
-        // $event = new Event();
-        // $event->narrative_id = $narrative->id;
-        // $event->name = '???';
-        // $event->content = File::get(database_path('seeds/ordinary_extraordinary/???.md'));
-        // $event->is_start = false;
-        // $event->icon_url = '/img/msl_projects_circle.png';
-        // $event->save();
-        // $this->makePlot($start_event, $event);
+        $event = new Event();
+        $event->narrative_id = $narrative->id;
+        $event->name = 'Alice Through the Looking Glass';
+        $event->content = File::get(database_path('seeds/ordinary_extraordinary/1.alice_through_the_looking_glass.md'));
+        $event->is_start = false;
+        $event->icon_url = '/img/msl_circle.png';
+        $event->save();
+        $this->makePlot($start_event, $event);
 
         $event = new Event();
         $event->narrative_id = $narrative->id;
         $event->name = 'Batwoman of Hastings';
         $event->content = File::get(database_path('seeds/ordinary_extraordinary/2.batwoman_of_hastings.md'));
         $event->is_start = false;
-        $event->icon_url = '/img/msl_projects_circle.png';
+        $event->icon_url = '/img/msl_circle.png';
         $event->save();
         $this->makePlot($start_event, $event);
 
@@ -103,7 +103,7 @@ class DatabaseSeeder extends Seeder
         $event->name = 'The Lightning Lady';
         $event->content = File::get(database_path('seeds/ordinary_extraordinary/3.the_lightning_lady.md'));
         $event->is_start = false;
-        $event->icon_url = '/img/msl_projects_circle.png';
+        $event->icon_url = '/img/msl_circle.png';
         $event->save();
         $this->makePlot($start_event, $event);
 
@@ -112,7 +112,7 @@ class DatabaseSeeder extends Seeder
         $event->name = 'Technicolour Dreamboy';
         $event->content = File::get(database_path('seeds/ordinary_extraordinary/4.technicolour_dreamboy.md'));
         $event->is_start = false;
-        $event->icon_url = '/img/msl_projects_circle.png';
+        $event->icon_url = '/img/msl_circle.png';
         $event->save();
         $this->makePlot($start_event, $event);
 
@@ -121,7 +121,7 @@ class DatabaseSeeder extends Seeder
         $event->name = 'The Disappearing Headmaster';
         $event->content = File::get(database_path('seeds/ordinary_extraordinary/5.the_disappearing_headmaster.md'));
         $event->is_start = false;
-        $event->icon_url = '/img/msl_projects_circle.png';
+        $event->icon_url = '/img/msl_circle.png';
         $event->save();
         $this->makePlot($start_event, $event);
 
@@ -130,7 +130,7 @@ class DatabaseSeeder extends Seeder
         $event->name = 'The Honey Hunger Striker';
         $event->content = File::get(database_path('seeds/ordinary_extraordinary/6.the_honey_hunger_striker.md'));
         $event->is_start = false;
-        $event->icon_url = '/img/msl_projects_circle.png';
+        $event->icon_url = '/img/msl_circle.png';
         $event->save();
         $this->makePlot($start_event, $event);
 
@@ -139,7 +139,7 @@ class DatabaseSeeder extends Seeder
         $event->name = 'The Microwaved Woman';
         $event->content = File::get(database_path('seeds/ordinary_extraordinary/7.the_microwaved_woman.md'));
         $event->is_start = false;
-        $event->icon_url = '/img/msl_projects_circle.png';
+        $event->icon_url = '/img/msl_circle.png';
         $event->save();
         $this->makePlot($start_event, $event);
 
@@ -148,7 +148,16 @@ class DatabaseSeeder extends Seeder
         $event->name = 'The Bee Landlady';
         $event->content = File::get(database_path('seeds/ordinary_extraordinary/8.the_bee_landlady.md'));
         $event->is_start = false;
-        $event->icon_url = '/img/msl_projects_circle.png';
+        $event->icon_url = '/img/msl_circle.png';
+        $event->save();
+        $this->makePlot($start_event, $event);
+
+        $event = new Event();
+        $event->narrative_id = $narrative->id;
+        $event->name = 'The Hunger Brothers';
+        $event->content = File::get(database_path('seeds/ordinary_extraordinary/9.the_hunger_brothers.md'));
+        $event->is_start = false;
+        $event->icon_url = '/img/msl_circle.png';
         $event->save();
         $this->makePlot($start_event, $event);
     }
@@ -159,17 +168,17 @@ class DatabaseSeeder extends Seeder
         $narrative->name = 'Smart Heritage';
         $narrative->author = 'MSL Projects';
         $narrative->author_href = 'http://www.mslprojects.co.uk';
-        $narrative->author_bio = '';
+        $narrative->author_bio = File::get(database_path('seeds/msl/author_bio.md'));
         $narrative->save();
 
         $event = new Event();
         $event->narrative_id = $narrative->id;
-        $event->name = 'MSL Projects';
-        $event->content = File::get(database_path('seeds/msl/index.md'));;
+        $event->name = 'This Is For Everyone';
+        $event->content = File::get(database_path('seeds/msl/index.md'));
         $event->lat = 50.855434;
         $event->lng = 0.576339;
         $event->is_start = true;
-        $event->icon_url = '/img/msl_projects_circle.png';
+        $event->icon_url = '/img/msl_circle.png';
         $event->save();
     }
 

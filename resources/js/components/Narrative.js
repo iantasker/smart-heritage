@@ -11,7 +11,7 @@ const Narrative = ({ narrative, event, handleClear, handleChangeEvent }) => (
         </div>
         <div className='row'>
             <div className='col'>
-                <h1>{event.name}</h1>
+                <h2>{event.name}</h2>
                 <ReactMarkdown source={event.content} escapeHtml={false} />
             </div>
         </div>
@@ -22,7 +22,10 @@ const Narrative = ({ narrative, event, handleClear, handleChangeEvent }) => (
                         {event.next_events.map((nextEvent) => (
                             <tr key={`next-evt-${nextEvent.id}`}>
                                 <td className='text-center'><img src={nextEvent.icon_url} className="event-icon" /></td>
-                                <td><a onClick={() => { handleChangeEvent(nextEvent.id) }}>{nextEvent.name}</a></td>
+                                <td><a href='#' onClick={(evt) => {
+                                    handleChangeEvent(nextEvent.id)
+                                    evt.preventDefault()
+                                }}>{nextEvent.name}</a></td>
                             </tr>
                         ))}
                     </tbody>
@@ -34,17 +37,17 @@ const Narrative = ({ narrative, event, handleClear, handleChangeEvent }) => (
                 <table>
                     <tbody className='font-weight-lighter'>
                         <tr>
-                            <td className='text-right'>{narrative.name != event.name && 'Part of'}</td>
+                            <td className='text-right lhc'>{narrative.name != event.name && 'Part of'}</td>
                             <td className='font-weight-normal'>{narrative.name}</td>
                         </tr>
                         <tr>
-                            <td className='text-right'>By</td>
+                            <td className='text-right lhc'>By</td>
                             <td><a href={narrative.author_href}>{narrative.author}</a></td>
                         </tr>
                         {narrative.author_bio &&
                             <tr>
-                                <td></td>
-                                <td><ReactMarkdown source={narrative.author_bio} escapeHtml={false} /></td>
+                                <td className='lhc'></td>
+                                <td className='small'><ReactMarkdown source={narrative.author_bio} escapeHtml={false} /></td>
                             </tr>
                         }
                     </tbody>

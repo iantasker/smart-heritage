@@ -10758,7 +10758,7 @@ a.text-dark:focus {
 }
 
 .navbar {
-  background-color: #fff;
+  background-color: #000;
 }
 
 .navbar .navbar-brand {
@@ -10768,7 +10768,7 @@ a.text-dark:focus {
 
 .splash {
   background-image: url(/img/watching.jpg);
-  height: 100px;
+  height: 90px;
   background-position: center;
   background-size: cover;
 }
@@ -10776,6 +10776,15 @@ a.text-dark:focus {
 .event-icon {
   width: 32px;
   height: 32px;
+}
+
+.event-image {
+  width: 100%;
+  max-width: 600px;
+}
+
+.lhc {
+  width: 50px;
 }
 
 .support-img {

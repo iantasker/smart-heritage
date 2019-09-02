@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const Header = () => (
     <header>
-        <nav className='navbar navbar-light'>
+        <nav className='navbar navbar-dark'>
             <Link className='navbar-brand mx-auto' to='/'>
                 #ThisIsForEveryone
             </Link>
