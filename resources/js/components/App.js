@@ -11,7 +11,7 @@ import { GA_TRACKING_ID } from '../variables'
 class App extends Component {
     componentDidMount() {
         ReactGA.initialize(GA_TRACKING_ID, {
-            debug: true,
+            // debug: true,
             gaOptions: {
                 siteSpeedSampleRate: 100
             }
@@ -26,6 +26,9 @@ class App extends Component {
                 <main className='container-fluid my-2'>
                     <p>
                         Explore the America Ground as you experience the experimental work by three local and regional artists Judith Ricketts, Kevin Grist and Rosanna Lowe. Use the map below to view the works.
+                    </p>
+                    <p>
+                        Engage with us on Twitter <a href='https://twitter.com/MSLHastings'>@MSLHastings</a> and Instagram<a href='https://www.instagram.com/msldigital/'>@msldigital</a>.
                     </p>
                     <p>
                         <a href='http://www.mslprojects.co.uk/this-is-for-everyone'>#ThisIsForEveryone</a>{' '}
@@ -43,7 +46,7 @@ class App extends Component {
                     disableButtonStyles={true}
                     buttonClasses='btn btn-primary mx-auto mt-1 mb-3'
                     expires={150}
-                    debug={true}
+                // debug={true}
                 >
                     This website uses <a href='http://www.aboutcookies.org.uk/'>cookies</a> to enhance the user experience and understand your interactions with the artists' work. No personal information is recorded.
                 </CookieConsent>
