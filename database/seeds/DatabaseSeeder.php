@@ -19,7 +19,6 @@ class DatabaseSeeder extends Seeder
         $this->airTime();
         $this->ordinaryExtraordinary();
         $this->msl();
-        // $this->wrnv();
     }
 
     private function beneathWater()
@@ -28,7 +27,7 @@ class DatabaseSeeder extends Seeder
         $narrative->name = 'Beneath Water';
         $narrative->author = 'Kevin Grist';
         $narrative->author_href = 'https://www.sparkedecho.org';
-        $narrative->author_bio = File::get(database_path('seeds/air_time/author_bio.md'));
+        $narrative->author_bio = File::get(database_path('seeds/beneath_water/author_bio.md'));
         $narrative->save();
 
         $event = new Event();
@@ -74,7 +73,7 @@ class DatabaseSeeder extends Seeder
         $start_event = new Event();
         $start_event->narrative_id = $narrative->id;
         $start_event->name = 'Ordinary Extraordinary';
-        $start_event->content = File::get(database_path('seeds/air_time/index.md'));
+        $start_event->content = File::get(database_path('seeds/ordinary_extraordinary/index.md'));
         $start_event->lat = 50.855323;
         $start_event->lng = 0.577022;
         $start_event->is_start = true;
@@ -157,8 +156,8 @@ class DatabaseSeeder extends Seeder
     private function msl()
     {
         $narrative = new Narrative();
-        $narrative->name = 'MSL Projects';
-        $narrative->author = 'MSL';
+        $narrative->name = 'Smart Heritage';
+        $narrative->author = 'MSL Projects';
         $narrative->author_href = 'http://www.mslprojects.co.uk';
         $narrative->author_bio = '';
         $narrative->save();

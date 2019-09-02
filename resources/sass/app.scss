@@ -1,6 +1,11 @@
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Fredericka+the+Great&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+// @import url('https://fonts.googleapis.com/css?family=Fredericka+the+Great&display=swap');
+// @import url('https://fonts.googleapis.com/css?family=Libre+Barcode+39+Text&display=swap');
+
+// @import url('https://fonts.googleapis.com/css?family=Libre+Barcode+128+Text&display=swap');
+// @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+@import url('https://fonts.googleapis.com/css?family=Libre+Barcode+128+Text|Roboto&display=swap');
 
 // Variables
 @import 'variables';
@@ -16,8 +21,15 @@
 
     .navbar-brand {
         font-family: $headings-font-family;
-        font-size: 2.2em;
+        font-size: 3.8em;
     }
+}
+
+.splash {
+    background-image: url(/img/watching.jpg);
+    height: 100px;
+    background-position: center;
+    background-size: cover;
 }
 
 .event-icon {
@@ -29,4 +41,9 @@
     // @extend .img-thumbnail;
     width: 100%;
     max-width: 100px;
+}
+
+.cookieConsent {
+    background-color: #F2F2F0 !important;
+    color: #212529 !important;
 }

@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Fredericka+the+Great&display=swap);@import url(https://fonts.googleapis.com/css?family=Roboto&display=swap);@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Libre+Barcode+128+Text|Roboto&display=swap);@charset "UTF-8";
 
 /*
 Some bits for reference
@@ -502,7 +502,7 @@ h6,
 .h5,
 .h6 {
   margin-bottom: 0.5rem;
-  font-family: "Fredericka the Great", cursive;
+  font-family: "Libre Barcode 128 Text", sans-serif;
   font-weight: 500;
   line-height: 1.2;
 }
@@ -10762,8 +10762,15 @@ a.text-dark:focus {
 }
 
 .navbar .navbar-brand {
-  font-family: "Fredericka the Great", cursive;
-  font-size: 2.2em;
+  font-family: "Libre Barcode 128 Text", sans-serif;
+  font-size: 3.8em;
+}
+
+.splash {
+  background-image: url(/img/watching.jpg);
+  height: 100px;
+  background-position: center;
+  background-size: cover;
 }
 
 .event-icon {
@@ -10774,5 +10781,10 @@ a.text-dark:focus {
 .support-img {
   width: 100%;
   max-width: 100px;
+}
+
+.cookieConsent {
+  background-color: #F2F2F0 !important;
+  color: #212529 !important;
 }
 

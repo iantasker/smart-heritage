@@ -27,7 +27,7 @@ class LocationWatcher extends Component {
         });
     };
 
-    defaultCoords() {
+    centerCoords() {
         return {
             lat: 50.855001,
             lng: 0.576780
@@ -37,7 +37,7 @@ class LocationWatcher extends Component {
     resetState() {
         return {
             watchId: null,
-            coords: this.defaultCoords(),
+            coords: this.centerCoords(),
             error: null,
             narratives: [],
             selectedNarrativeId: null,
@@ -242,9 +242,12 @@ class LocationWatcher extends Component {
     }
 
     render() {
-        const { error, coords, selectedNarrativeId } = this.state
-        const coordsInBounds = this.isCoordsInBounds()
-        const centerAt = coordsInBounds ? coords : this.defaultCoords()
+        const { error, watchId, selectedNarrativeId } = this.state
+        const centerAt = this.centerCoords()
+
+        // const { coords } = this.state
+        // const centerAt = coordsInBounds ? coords : this.centerCoords()
+        // const coordsInBounds = this.isCoordsInBounds()
 
         return (
             <div>
@@ -260,7 +263,8 @@ class LocationWatcher extends Component {
                     }}
                 >
                     {selectedNarrativeId ? this.makeEventMarkers() : this.makeNarrativeMarkers()}
-                    {coordsInBounds && this.makeCircle()}
+                    {/* {coordsInBounds && this.makeCircle()} */}
+                    {!error && watchId && this.makeCircle()}
                 </GoogleMap>
                 {this.renderNarrative()}
             </div>

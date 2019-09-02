@@ -3,11 +3,15 @@ import ReactMarkdown from 'react-markdown/with-html'
 import isEmpty from 'lodash/isEmpty'
 
 const Narrative = ({ narrative, event, handleClear, handleChangeEvent }) => (
-    <div className='container mt-4'>
+    <div className='container'>
+        <div className='row justify-content-end my-2'>
+            <div className='col-auto'>
+                <button type="button" className="btn btn-outline-primary btn-sm" onClick={handleClear}>Back</button>
+            </div>
+        </div>
         <div className='row'>
             <div className='col'>
-                <button type="button" className="btn btn-outline-primary btn-sm float-right" onClick={handleClear}>Back</button>
-                <h4>{event.name}</h4>
+                <h1>{event.name}</h1>
                 <ReactMarkdown source={event.content} escapeHtml={false} />
             </div>
         </div>
