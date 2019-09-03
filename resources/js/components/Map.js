@@ -16,7 +16,16 @@ import Narrative from './Narrative'
 class LocationWatcher extends Component {
     constructor(props) {
         super(props)
-        this.state = this.resetState()
+        const { narrative_id, event_id } = this.props
+        this.state = {
+            watchId: null,
+            coords: this.centerCoords(),
+            error: null,
+            narratives: [],
+            narrativeId: parseInt(narrative_id, 10) || null,
+            events: [],
+            eventId: parseInt(event_id, 10) || null
+        }
     }
 
     sendEvent(action, label) {
@@ -29,20 +38,8 @@ class LocationWatcher extends Component {
 
     centerCoords() {
         return {
-            lat: 50.855001,
-            lng: 0.576780
-        }
-    }
-
-    resetState() {
-        return {
-            watchId: null,
-            coords: this.centerCoords(),
-            error: null,
-            narratives: [],
-            selectedNarrativeId: null,
-            events: [],
-            selectedEventId: null
+            lat: 50.855100,
+            lng: 0.576700
         }
     }
 
@@ -53,11 +50,6 @@ class LocationWatcher extends Component {
     canGeolocate() {
         const provider = this.geolocationProvider()
         const supported = provider && provider.watchPosition && provider.clearWatch
-
-        if (!supported) {
-            this.setState({ error: 'Geolocation is not supported by your browser' })
-        }
-
         return supported
     }
 
@@ -66,22 +58,21 @@ class LocationWatcher extends Component {
         let markers = []
         narratives.forEach(narrative => {
             let mappableEvents = filter(narrative.starts_at, this.eventIsMappable)
-            markers = markers.concat(map(mappableEvents, (event) => this.makeMarker('nrt', event, (evt) => {
-                this.setState({ selectedNarrativeId: narrative.id, selectedEventId: event.id })
-                this.fetch()
+            markers = markers.concat(map(mappableEvents, (event) => this.makeMarker('nrt', event, () => {
                 this.sendEvent('narrative', narrative.name)
                 this.sendEvent('event', event.name)
+                window.location.href = `/narrative/${narrative.id}/event/${event.id}`
             })))
         })
         return markers
     }
 
     makeEventMarkers() {
-        const { events } = this.state
+        const { events, narrativeId } = this.state
         let mappableEvents = filter(events, this.eventIsMappable)
-        const markers = map(mappableEvents, (event) => this.makeMarker('evt', event, (evt) => {
-            this.setState({ selectedEventId: event.id })
+        const markers = map(mappableEvents, (event) => this.makeMarker('evt', event, () => {
             this.sendEvent('event', event.name)
+            window.location.href = `/narrative/${narrativeId}/event/${event.id}`
         }))
         return markers
     }
@@ -99,16 +90,12 @@ class LocationWatcher extends Component {
             labelOrigin: new google.maps.Point(16, 40)
         }
 
-        const label = {
-            // color:
-            // fontFamily:
-            // fontSize:
-            // fontWeight:
-            text: event.name
-        }
+        const label = { text: event.name }
+
+        const key = `${keyPrefix}-${event.id}`
 
         return <Marker
-            key={`${keyPrefix}-${event.id}`}
+            key={key}
             position={event.coords}
             title={event.name}
             label={label}
@@ -132,10 +119,6 @@ class LocationWatcher extends Component {
         return <Circle options={options} />
     }
 
-    clearNarrative() {
-        this.setState({ selectedNarrativeId: null })
-    }
-
     componentDidMount() {
         if (this.canGeolocate()) {
             const geo_options = {
@@ -149,12 +132,12 @@ class LocationWatcher extends Component {
             const watchId = provider.watchPosition((position) => this.handlePositionChange(position), (error) => this.handlePositionError(error), geo_options)
             this.setState({ watchId })
         }
+
         this.fetch()
     }
 
     componentWillUnmount() {
         this.stopWatchingPosition()
-        this.setState(this.resetState())
     }
 
     handlePositionChange(position) {
@@ -189,42 +172,42 @@ class LocationWatcher extends Component {
     }
 
     fetch() {
-        const { narratives, selectedNarrativeId } = this.state
-        if (isEmpty(narratives)) {
-            // axios.get('/api/narratives', { params: this.state.coords })
-            axios.get('/api/narratives')
-                .then(res => {
-                    this.setState({ narratives: res.data.data });
-                })
-        }
+        const { narrativeId } = this.state
 
-        if (selectedNarrativeId) {
-            axios.get(`/api/narratives/${selectedNarrativeId}/events`)
-                .then(res => {
-                    this.setState({ events: res.data.data });
-                })
+        axios.get('/api/narratives').then(res => {
+            this.setState({ narratives: res.data.data });
+        })
+
+        if (narrativeId) {
+            axios.get(`/api/narratives/${narrativeId}/events`).then(res => {
+                this.setState({ events: res.data.data });
+            })
         }
     }
 
     renderNarrative() {
-        const { narratives, selectedNarrativeId, events, selectedEventId } = this.state
-        const narrative = find(narratives, { id: selectedNarrativeId })
-        let event = find(events, { id: selectedEventId })
+        const { narratives, narrativeId, events, eventId } = this.state
+        const narrative = find(narratives, { id: narrativeId })
+        let event = find(events, { id: eventId })
         if (narrative && !event) {
-            event = find(narrative.starts_at, { id: selectedEventId })
+            event = find(narrative.starts_at, { id: eventId })
         }
 
         if (narrative && event) {
-            return <Narrative narrative={narrative} event={event} handleClear={() => {
-                this.setState({ selectedNarrativeId: null, selectedEventId: null })
-            }} handleChangeEvent={(nextEventId) => {
-                const nextEvent = find(events, { id: nextEventId })
-                if (!nextEvent) {
-                    return
-                }
-                this.setState({ selectedEventId: nextEvent.id })
-                this.sendEvent('event', nextEvent.name)
-            }} />
+            return <Narrative
+                narrative={narrative}
+                event={event}
+                handleBack={() => {
+                    window.location.href = '/'
+                }}
+                handleChangeEvent={(nextEventId) => {
+                    const nextEvent = find(events, { id: nextEventId })
+                    if (nextEvent) {
+                        this.sendEvent('event', nextEvent.name)
+                        window.location.href = `/narrative/${narrativeId}/event/${nextEvent.id}`
+                    }
+                }}
+            />
         } else {
             return <div />
         }
@@ -242,12 +225,8 @@ class LocationWatcher extends Component {
     }
 
     render() {
-        const { error, watchId, selectedNarrativeId } = this.state
+        const { error, watchId, narrativeId } = this.state
         const centerAt = this.centerCoords()
-
-        // const { coords } = this.state
-        // const centerAt = coordsInBounds ? coords : this.centerCoords()
-        // const coordsInBounds = this.isCoordsInBounds()
 
         return (
             <div>
@@ -262,8 +241,7 @@ class LocationWatcher extends Component {
                         styles: MAP_STYLE
                     }}
                 >
-                    {selectedNarrativeId ? this.makeEventMarkers() : this.makeNarrativeMarkers()}
-                    {/* {coordsInBounds && this.makeCircle()} */}
+                    {narrativeId ? this.makeEventMarkers() : this.makeNarrativeMarkers()}
                     {!error && watchId && this.makeCircle()}
                 </GoogleMap>
                 {this.renderNarrative()}
@@ -282,7 +260,7 @@ const Map = compose(
     withScriptjs,
     withGoogleMap
 )((props) => (
-    <LocationWatcher />
+    <LocationWatcher {...props} />
 ))
 
 export default Map;

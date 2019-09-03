@@ -1,17 +1,17 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
-import { BrowserRouter } from 'react-router-dom'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import ReactGA from 'react-ga'
 import CookieConsent from "react-cookie-consent";
 import Footer from './Footer'
 import Header from './Header'
-import Map from './Map'
+import Main from './Main'
 import { GA_TRACKING_ID } from '../variables'
 
 class App extends Component {
     componentDidMount() {
         ReactGA.initialize(GA_TRACKING_ID, {
-            // debug: true,
+            debug: true,
             gaOptions: {
                 siteSpeedSampleRate: 100
             }
@@ -23,22 +23,10 @@ class App extends Component {
         return (
             <BrowserRouter>
                 <Header />
-                <main className='container-fluid my-2'>
-                    <p>
-                        In 2012, Tim Berners-Lee famously tweeted "This Is For Everyone", in a moment of technological optimism many think is lost to us. MSL want to build on Berners-Lee's big moment by exploring how small-town WiFi could re-open urban channels to the massive variety of audiences found on city streets.
-                    </p>
-                    <p>
-                        MSL invites you to explore the America Ground and experience the experimental work by three local and regional artists Judith Ricketts, Kevin Grist and Rosanna Lowe. Use the map below to view the works.
-                    </p>
-                    <p>
-                        Engage with us on Twitter <a href='https://twitter.com/MSLHastings'>@MSLHastings</a> and Instagram<a href='https://www.instagram.com/msldigital/'>@msldigital</a>.
-                    </p>
-                    <p>
-                        <a href='http://www.mslprojects.co.uk/this-is-for-everyone'>#ThisIsForEveryone</a>{' '}
-                        <a href='http://www.mslprojects.co.uk/is-this-for-everyone'>#IsThisIsForEveryone?</a>
-                    </p>
-                    <Map />
-                </main>
+                <Switch>
+                    <Route exact path='/' component={Main} />
+                    <Route path='/narrative/:narrative_id/event/:event_id' component={Main} />
+                </Switch>
                 <Footer />
                 <CookieConsent
                     location='bottom'

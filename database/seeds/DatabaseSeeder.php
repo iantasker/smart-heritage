@@ -37,7 +37,7 @@ class DatabaseSeeder extends Seeder
         $event->lat = 50.855585;
         $event->lng = 0.576512;
         $event->is_start = true;
-        $event->icon_url = '/img/msl_circle.png';
+        $event->icon_url = '/img/beneath_water/map_icon.png';
         $event->save();
     }
 
@@ -57,7 +57,7 @@ class DatabaseSeeder extends Seeder
         $event->lat = 50.854639;
         $event->lng = 0.576489;
         $event->is_start = true;
-        $event->icon_url = '/img/msl_circle.png';
+        $event->icon_url = '/img/air_time/map_icon.png';
         $event->save();
     }
 
@@ -77,7 +77,7 @@ class DatabaseSeeder extends Seeder
         $start_event->lat = 50.855323;
         $start_event->lng = 0.577022;
         $start_event->is_start = true;
-        $start_event->icon_url = '/img/msl_circle.png';
+        $start_event->icon_url = '/img/ordinary_extraordinary/map_icon.png';
         $start_event->save();
 
         $event = new Event();
@@ -85,7 +85,7 @@ class DatabaseSeeder extends Seeder
         $event->name = 'Alice Through the Looking Glass';
         $event->content = File::get(database_path('seeds/ordinary_extraordinary/1.alice_through_the_looking_glass.md'));
         $event->is_start = false;
-        $event->icon_url = '/img/msl_circle.png';
+        $event->icon_url = '/img/ordinary_extraordinary/map_icon.png';
         $event->save();
         $this->makePlot($start_event, $event);
 
@@ -94,7 +94,7 @@ class DatabaseSeeder extends Seeder
         $event->name = 'Batwoman of Hastings';
         $event->content = File::get(database_path('seeds/ordinary_extraordinary/2.batwoman_of_hastings.md'));
         $event->is_start = false;
-        $event->icon_url = '/img/msl_circle.png';
+        $event->icon_url = '/img/ordinary_extraordinary/map_icon.png';
         $event->save();
         $this->makePlot($start_event, $event);
 
@@ -103,7 +103,7 @@ class DatabaseSeeder extends Seeder
         $event->name = 'The Lightning Lady';
         $event->content = File::get(database_path('seeds/ordinary_extraordinary/3.the_lightning_lady.md'));
         $event->is_start = false;
-        $event->icon_url = '/img/msl_circle.png';
+        $event->icon_url = '/img/ordinary_extraordinary/map_icon.png';
         $event->save();
         $this->makePlot($start_event, $event);
 
@@ -112,7 +112,7 @@ class DatabaseSeeder extends Seeder
         $event->name = 'Technicolour Dreamboy';
         $event->content = File::get(database_path('seeds/ordinary_extraordinary/4.technicolour_dreamboy.md'));
         $event->is_start = false;
-        $event->icon_url = '/img/msl_circle.png';
+        $event->icon_url = '/img/ordinary_extraordinary/map_icon.png';
         $event->save();
         $this->makePlot($start_event, $event);
 
@@ -121,7 +121,7 @@ class DatabaseSeeder extends Seeder
         $event->name = 'The Disappearing Headmaster';
         $event->content = File::get(database_path('seeds/ordinary_extraordinary/5.the_disappearing_headmaster.md'));
         $event->is_start = false;
-        $event->icon_url = '/img/msl_circle.png';
+        $event->icon_url = '/img/ordinary_extraordinary/map_icon.png';
         $event->save();
         $this->makePlot($start_event, $event);
 
@@ -130,7 +130,7 @@ class DatabaseSeeder extends Seeder
         $event->name = 'The Honey Hunger Striker';
         $event->content = File::get(database_path('seeds/ordinary_extraordinary/6.the_honey_hunger_striker.md'));
         $event->is_start = false;
-        $event->icon_url = '/img/msl_circle.png';
+        $event->icon_url = '/img/ordinary_extraordinary/map_icon.png';
         $event->save();
         $this->makePlot($start_event, $event);
 
@@ -139,7 +139,7 @@ class DatabaseSeeder extends Seeder
         $event->name = 'The Microwaved Woman';
         $event->content = File::get(database_path('seeds/ordinary_extraordinary/7.the_microwaved_woman.md'));
         $event->is_start = false;
-        $event->icon_url = '/img/msl_circle.png';
+        $event->icon_url = '/img/ordinary_extraordinary/map_icon.png';
         $event->save();
         $this->makePlot($start_event, $event);
 
@@ -148,7 +148,7 @@ class DatabaseSeeder extends Seeder
         $event->name = 'The Bee Landlady';
         $event->content = File::get(database_path('seeds/ordinary_extraordinary/8.the_bee_landlady.md'));
         $event->is_start = false;
-        $event->icon_url = '/img/msl_circle.png';
+        $event->icon_url = '/img/ordinary_extraordinary/map_icon.png';
         $event->save();
         $this->makePlot($start_event, $event);
 
@@ -157,7 +157,7 @@ class DatabaseSeeder extends Seeder
         $event->name = 'The Hunger Brothers';
         $event->content = File::get(database_path('seeds/ordinary_extraordinary/9.the_hunger_brothers.md'));
         $event->is_start = false;
-        $event->icon_url = '/img/msl_circle.png';
+        $event->icon_url = '/img/ordinary_extraordinary/map_icon.png';
         $event->save();
         $this->makePlot($start_event, $event);
     }
@@ -173,12 +173,32 @@ class DatabaseSeeder extends Seeder
 
         $event = new Event();
         $event->narrative_id = $narrative->id;
-        $event->name = 'This Is For Everyone';
+        $event->name = 'MSL Projects';
         $event->content = File::get(database_path('seeds/msl/index.md'));
-        $event->lat = 50.855434;
-        $event->lng = 0.576339;
+        $event->lat = 50.855537;
+        $event->lng = 0.575949;
         $event->is_start = true;
-        $event->icon_url = '/img/msl_circle.png';
+        $event->icon_url = '/img/map_icon.png';
+        $event->save();
+
+        $event = new Event();
+        $event->narrative_id = $narrative->id;
+        $event->name = 'America Ground';
+        $event->content = File::get(database_path('seeds/msl/america_ground.md'));
+        $event->lat = 50.855100;
+        $event->lng = 0.576780;
+        $event->is_start = false;
+        $event->icon_url = '/img/map_icon.png';
+        $event->save();
+
+        $event = new Event();
+        $event->narrative_id = $narrative->id;
+        $event->name = 'Gotham Alley';
+        $event->content = File::get(database_path('seeds/msl/gotham_alley.md'));
+        $event->lat = 50.855354;
+        $event->lng = 0.576097;
+        $event->is_start = false;
+        $event->icon_url = '/img/map_icon.png';
         $event->save();
     }
 
