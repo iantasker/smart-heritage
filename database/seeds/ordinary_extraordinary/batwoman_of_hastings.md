@@ -80,4 +80,4 @@ My heart fluttered fast as their flight
 
 *Karen Hammond runs the Hastings Bat Hospital.*
 
-<div class="text-center"><img src="/img/ordinary_extraordinary/2.batwoman_of_hastings.jpg" class="event-image" alt="A mile in their shoes" /></div>
+<div class="text-center"><img src="/img/ordinary_extraordinary/batwoman_of_hastings.jpg" class="event-image" alt="A mile in their shoes" /></div>

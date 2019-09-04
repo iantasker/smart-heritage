@@ -66,4 +66,4 @@ Of bees
 
 *Katharine Slater runs Bee Potion, an ethical apothecary of bee products, and runs holistic workshops at her woodland apiary.*
 
-<div class="text-center"><img src="/img/ordinary_extraordinary/8.the_bee_landlady.jpg" class="event-image" alt="A mile in their shoes" /></div>
+<div class="text-center"><img src="/img/ordinary_extraordinary/the_bee_landlady.jpg" class="event-image" alt="A mile in their shoes" /></div>

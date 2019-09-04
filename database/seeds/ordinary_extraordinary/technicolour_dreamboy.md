@@ -78,4 +78,4 @@ I was ready to go to Beachy Head.<br/>
 But you<br/>
 You changed my mind."
 
-<div class="text-center"><img src="/img/ordinary_extraordinary/4.technicolour_dreamboy.jpg" class="event-image" alt="A mile in their shoes" /></div>
+<div class="text-center"><img src="/img/ordinary_extraordinary/technicolour_dreamboy.jpg" class="event-image" alt="A mile in their shoes" /></div>

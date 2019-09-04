@@ -124,4 +124,4 @@ In my little shop<br/>
 That I was born a beekeeper's son<br/>
 In a mountain valley by the Munzur River?
 
-<div class="text-center"><img src="/img/ordinary_extraordinary/6.the_honey_hunger_striker.jpg" class="event-image" alt="A mile in their shoes" /></div>
+<div class="text-center"><img src="/img/ordinary_extraordinary/the_honey_hunger_striker.jpg" class="event-image" alt="A mile in their shoes" /></div>

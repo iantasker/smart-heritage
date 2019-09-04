@@ -87,4 +87,4 @@ Every little bit of it tingles
 
 *This was written after interviewing Alice Denny, a poet, whose transition came later in life.*
 
-<div class="text-center"><img src="/img/ordinary_extraordinary/1.alice_through_the_looking_glass.jpg" class="event-image" alt="A mile in their shoes" /></div>
+<div class="text-center"><img src="/img/ordinary_extraordinary/alice_through_the_looking_glass.jpg" class="event-image" alt="A mile in their shoes" /></div>

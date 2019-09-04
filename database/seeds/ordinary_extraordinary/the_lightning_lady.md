@@ -59,4 +59,4 @@ Hurts."
 
 *This was written after speaking to a Hastings resident hit by lightning.*
 
-<div class="text-center"><img src="/img/ordinary_extraordinary/3.the_lightning_lady.jpg" class="event-image" alt="A mile in their shoes" /></div>
+<div class="text-center"><img src="/img/ordinary_extraordinary/the_lightning_lady.jpg" class="event-image" alt="A mile in their shoes" /></div>

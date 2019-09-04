@@ -69,4 +69,4 @@ Without danger
 
 *X and his family are living in Hastings, while waiting to hear the verdict on his application for political asylum.*
 
-<div class="text-center"><img src="/img/ordinary_extraordinary/5.the_disappearing_headmaster.jpg" class="event-image" alt="A mile in their shoes" /></div>
+<div class="text-center"><img src="/img/ordinary_extraordinary/the_disappearing_headmaster.jpg" class="event-image" alt="A mile in their shoes" /></div>

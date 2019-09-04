@@ -68,4 +68,4 @@ Beautiful things can grow
 
 *James and Pete Robinson run the charity [Surviving The Streets](https://survivingthestreets.uk). James has also developed an app, which allows homeless people all over the world to find local shelters and services that can support them.*
 
-<div class="text-center"><img src="/img/ordinary_extraordinary/9.the_hunger_brothers.jpg" class="event-image" alt="A mile in their shoes" /></div>
+<div class="text-center"><img src="/img/ordinary_extraordinary/the_hunger_brothers.jpg" class="event-image" alt="A mile in their shoes" /></div>
