@@ -6,7 +6,7 @@ const Narrative = ({ narrative, event, handleBack, handleChangeEvent }) => (
     <div className='container'>
         <div className='row justify-content-end my-2'>
             <div className='col'>
-                <button type='button' className='btn btn-outline-primary btn-sm' style={{ width: '100%' }} onClick={handleBack}>View all</button>
+                <button type='button' className='btn btn-outline-primary btn-sm' style={{ width: '100%' }} onClick={handleBack}>Back</button>
             </div>
         </div>
         <div className='row'>
@@ -42,7 +42,7 @@ const Narrative = ({ narrative, event, handleBack, handleChangeEvent }) => (
         </div>
         <div className='row justify-content-end my-2'>
             <div className='col'>
-                <button type='button' className='btn btn-outline-primary btn-sm' style={{ width: '100%' }} onClick={handleBack}>View all</button>
+                <button type='button' className='btn btn-outline-primary btn-sm' style={{ width: '100%' }} onClick={handleBack}>Back</button>
             </div>
         </div>
     </div>
