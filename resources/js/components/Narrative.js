@@ -3,7 +3,7 @@ import ReactMarkdown from 'react-markdown/with-html'
 import isEmpty from 'lodash/isEmpty'
 
 const Narrative = ({ narrative, event, handleBack, handleChangeEvent }) => (
-    <div className='container'>
+    <div className='container container-small'>
         <div className='row justify-content-end my-2'>
             <div className='col'>
                 <button type='button' className='btn btn-outline-primary btn-sm' style={{ width: '100%' }} onClick={handleBack}>Back</button>

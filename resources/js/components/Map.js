@@ -104,19 +104,32 @@ class LocationWatcher extends Component {
         />
     }
 
-    makeCircle() {
+    makeLocationMarker() {
         const { coords } = this.state
-        const options = {
+        const outerOptions = {
             center: coords,
             clickable: false,
-            fillColor: '#000',
-            fillOpacity: 0.2,
+            fillColor: '#072247',
+            fillOpacity: 0.1,
             strokeColor: '#FFF',
             strokeOpacity: 0.3,
             strokeWeight: 1,
             radius: 20
         }
-        return <Circle options={options} />
+        const innerOptions = {
+            center: coords,
+            clickable: false,
+            fillColor: '#072247',
+            fillOpacity: 0.2,
+            strokeColor: '#FFF',
+            strokeOpacity: 1,
+            strokeWeight: 0,
+            radius: 2
+        }
+        return [
+            <Circle options={outerOptions} />,
+            <Circle options={innerOptions} />
+        ]
     }
 
     componentDidMount() {
@@ -242,7 +255,7 @@ class LocationWatcher extends Component {
                     }}
                 >
                     {narrativeId ? this.makeEventMarkers() : this.makeNarrativeMarkers()}
-                    {!error && watchId && this.makeCircle()}
+                    {!error && watchId && this.makeLocationMarker()}
                 </GoogleMap>
                 {this.renderNarrative()}
             </div>

@@ -4,6 +4,8 @@ The markers are designed to reveal immediate parts of the story in up to 60 seco
 
 The placement of the markers at intersecting points in the space leads us through map coordinates to other places in the urban space where, concealed in the bungaroosh, are other unremembered stories, untold.
 
+For the best experience **an Android device is recommended.**
+
 **Headphones recommended.**
 
 <div class="text-center"><a href="https://soo.gd/airTime"><img src="/img/air_time/cover.jpg" class="event-image"/></a></div>

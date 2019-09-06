@@ -74,8 +74,8 @@ class DatabaseSeeder extends Seeder
         $start_event->narrative_id = $narrative->id;
         $start_event->name = 'Ordinary Extraordinary';
         $start_event->content = File::get(database_path('seeds/ordinary_extraordinary/index.md'));
-        $start_event->lat = 50.855323;
-        $start_event->lng = 0.577022;
+        $start_event->lat = 50.855275;
+        $start_event->lng = 0.576804;
         $start_event->is_start = true;
         $start_event->icon_url = '/img/ordinary_extraordinary/map_icon.png';
         $start_event->save();

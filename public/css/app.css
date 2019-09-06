@@ -10757,6 +10757,18 @@ a.text-dark:focus {
   }
 }
 
+@media (min-width: 992px) {
+  .container-small {
+    width: 500px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container-small {
+    width: 700px;
+  }
+}
+
 .navbar {
   background-color: #000;
 }
