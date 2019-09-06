@@ -127,8 +127,8 @@ class LocationWatcher extends Component {
             radius: 2
         }
         return [
-            <Circle options={outerOptions} />,
-            <Circle options={innerOptions} />
+            <Circle key='outerLocationMarker' options={outerOptions} />,
+            <Circle key='innerLocationMarker' options={innerOptions} />
         ]
     }
 

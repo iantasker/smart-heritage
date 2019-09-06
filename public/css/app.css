@@ -10759,13 +10759,13 @@ a.text-dark:focus {
 
 @media (min-width: 992px) {
   .container-small {
-    width: 500px;
+    width: 700px;
   }
 }
 
 @media (min-width: 1200px) {
   .container-small {
-    width: 700px;
+    width: 1000px;
   }
 }
 
