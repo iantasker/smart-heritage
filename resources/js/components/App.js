@@ -11,7 +11,7 @@ import { GA_TRACKING_ID } from '../variables'
 class App extends Component {
     componentDidMount() {
         ReactGA.initialize(GA_TRACKING_ID, {
-            debug: true,
+            // debug: true,
             gaOptions: {
                 siteSpeedSampleRate: 100
             }
