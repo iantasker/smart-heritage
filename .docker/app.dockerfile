@@ -17,9 +17,10 @@ RUN apk add --no-cache \
     mysql-client \
     unzip \
     zip \
-    --repository http://dl-cdn.alpinelinux.org/alpine/edge/community \
-    --repository http://dl-cdn.alpinelinux.org/alpine/edge/main \
     --update
+
+#    --repository http://dl-cdn.alpinelinux.org/alpine/edge/community \
+#    --repository http://dl-cdn.alpinelinux.org/alpine/edge/main \
 
 # RUN docker-php-ext-install curl
 # RUN docker-php-ext-install iconv
