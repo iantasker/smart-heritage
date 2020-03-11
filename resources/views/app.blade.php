@@ -7,9 +7,12 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="google-site-verification" content="3yRQDsk4zdjj8FLRbqL1erDrZeNPOLoTuBRaD8V3qao" />
-    <title>#ThisIsForEveryone #SmartHeritage</title>
+    <meta name="description" content="" />
+    <title>SmartHeritage</title>
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="preconnect" href="https://maps.gstatic.com">
+    <link rel="preconnect" href="https://www.google-analytics.com">
   </head>
   <body>
     <div id="app"></div>
