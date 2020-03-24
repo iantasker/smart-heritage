@@ -5,21 +5,26 @@ environments:
         memory: 1024
         cli-memory: 512
         runtime: php-7.4
+        domain:
+            - smart-heritage.co.uk
         storage: smart-heritage-co-uk
         build:
-            - 'composer install --no-dev'
-            - 'php artisan event:cache'
-            - 'npm ci && npm run prod && rm -rf node_modules'
+            - "composer install --no-dev"
+            - "php artisan event:cache"
+            - "npm ci && npm run prod && rm -rf node_modules"
         deploy:
-            - 'php artisan migrate --force'
+            - "php artisan migrate --force"
     staging:
         memory: 1024
         cli-memory: 512
         runtime: php-7.4
         database: smart-heritage
+        domain:
+            - staging.smart-heritage.co.uk
+        storage: smart-heritage-co-uk
         build:
-            - 'composer install'
-            - 'php artisan event:cache'
-            - 'npm ci && npm run dev && rm -rf node_modules'
+            - "composer install"
+            - "php artisan event:cache"
+            - "npm ci && npm run dev && rm -rf node_modules"
         deploy:
-            - 'php artisan migrate --force'
+            - "php artisan migrate --force"
