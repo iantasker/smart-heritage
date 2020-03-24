@@ -21,13 +21,13 @@ class EventResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'content' => $this->content,
+            'content' => str_replace('/img/', asset('/img/').'/', $this->content),
             'coords' => [
                 'lat' => $this->lat,
                 'lng' => $this->lng
             ],
             'is_start' => $this->is_start,
-            'icon_url' => $this->icon_url,
+            'icon_url' => asset($this->icon_url),
             'next_events' => NextEventResource::collection($this->nextEvents),
             'created_at' => $this->created_at->toIso8601String(),
             'updated_at' => $this->updated_at->toIso8601String(),

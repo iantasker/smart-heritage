@@ -23,7 +23,7 @@ class NextEventResource extends JsonResource
                 'lat' => $this->lat,
                 'lng' => $this->lng
             ],
-            'icon_url' => $this->icon_url
+            'icon_url' => asset($this->icon_url)
         ];
     }
 }
