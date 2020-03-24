@@ -32,14 +32,9 @@ mix.imgCDN = function(path, cdn) {
     return this;
 }.bind(mix);
 
-if (mix.inProduction()) {
-    mix.then(function() {
-        let cdn = process.env.ASSET_URL;
-        if (cdn !== undefined) {
-            mix.imgCDN("public/css/app.css", cdn).imgCDN(
-                "public/js/app.js",
-                cdn
-            );
-        }
-    });
-}
+mix.then(function() {
+    let cdn = process.env.ASSET_URL;
+    if (cdn !== undefined) {
+        mix.imgCDN("public/css/app.css", cdn).imgCDN("public/js/app.js", cdn);
+    }
+});
