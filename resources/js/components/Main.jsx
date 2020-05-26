@@ -4,19 +4,20 @@ import Map from "./Map";
 const Main = ({ match }) => {
     const { narrative_id, event_id } = match.params;
     return (
-        <main className="container-fluid my-2">
+        <main className="container-fluid p-0 mt-4">
             {(!narrative_id || !event_id) && (
-                <div>
-                    <p>
-                        Smart Heritage is an MSL Projects initiative that puts
-                        Hastings history and creativity on the map This map
-                        shows different projects bringing the arts and history
-                        of Hastings to life via the web and mobile phones All
-                        these projects happened on three streets in the centre
-                        of our town, the America Ground. They are Claremont
-                        Street, Trinity Street and Robertson Street.
+                <div className="row">
+                    <p className="col-sm-10 col-md-8 text-align-left">
+                        Smart Heritage brings the history of Hastings' America Ground and
+                        Trinity Triangle to life online through art & heritage projects
                     </p>
-                    <p>
+                </div>
+            )}
+            <Map narrative_id={narrative_id} event_id={event_id} />
+
+            {(!narrative_id || !event_id) && (
+                <div className="row">
+                    <p className="col-sm-10 col-md-8 text-align-left">
                         <a href="http://www.mslprojects.co.uk/this-is-for-everyone">
                             This Is For Everyone
                         </a>{" "}
@@ -26,7 +27,7 @@ const Main = ({ match }) => {
                             Arts Council England
                         </a>
                     </p>
-                    <p>
+                    <p className="col-sm-10 col-md-8 text-align-left">
                         <a href="http://www.mslprojects.co.uk/our-past-our-future-developing-historical-sources-for-creative-inspiration/">
                             Our Past, Our Future
                         </a>{" "}
@@ -38,7 +39,7 @@ const Main = ({ match }) => {
                         was build by{" "}
                         <a href="https://drjonnicholson.com">Jon Nicholson</a>
                     </p>
-                    <p>
+                    <p className="col-sm-10 col-md-8 text-align-left">
                         Engage with us on Twitter{" "}
                         <a href="https://twitter.com/MSLHastings">
                             @MSLHastings
@@ -51,7 +52,6 @@ const Main = ({ match }) => {
                     </p>
                 </div>
             )}
-            <Map narrative_id={narrative_id} event_id={event_id} />
         </main>
     );
 };

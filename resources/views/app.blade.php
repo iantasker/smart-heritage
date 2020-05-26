@@ -15,8 +15,7 @@
     <link rel="preconnect" href="https://www.google-analytics.com">
   </head>
   <body>
-    <div id="app"></div>
-
+    <div id="app" class="container"></div>
     <script src="{{ asset('js/app.js') }}"></script>
   </body>
 </html>
