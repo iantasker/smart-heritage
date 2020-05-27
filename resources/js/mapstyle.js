@@ -1,32 +1,27 @@
 // https://snazzymaps.com/style/19/subtle
 const MAP_STYLE = [
   {
+    "featureType": "administrative",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#444444"
+      }
+    ]
+  },
+  {
+    "featureType": "landscape",
+    "elementType": "all",
+    "stylers": [
+      {
+        "color": "#f2f2f2"
+      }
+    ]
+  },
+  {
     "featureType": "poi",
+    "elementType": "all",
     "stylers": [
-      {
-        "visibility": "off"
-      }
-    ]
-    },
-  {
-    "stylers": [
-      {
-        "saturation": -70
-      },
-      {
-        "lightness": 37
-      },
-      {
-        "gamma": 1.15
-      }
-    ]
-  },
-  {
-    "elementType": "labels",
-    "stylers": [
-      {
-        "gamma": 0.26
-      },
       {
         "visibility": "off"
       }
@@ -34,68 +29,28 @@ const MAP_STYLE = [
   },
   {
     "featureType": "road",
+    "elementType": "all",
     "stylers": [
       {
-        "lightness": 0
+        "saturation": -100
       },
       {
-        "saturation": 0
-      },
-      {
-        "hue": "#ffffff"
-            },
-      {
-        "gamma": 0
-      }
-    ]
-  },
-  {
-    "featureType": "road",
-    "elementType": "labels.text.stroke",
-    "stylers": [
-      {
-        "visibility": "off"
-      }
-    ]
-  },
-  {
-    "featureType": "road.arterial",
-    "elementType": "geometry",
-    "stylers": [
-      {
-        "lightness": 20
+        "lightness": 45
       }
     ]
   },
   {
     "featureType": "road.highway",
-    "elementType": "geometry",
+    "elementType": "all",
     "stylers": [
       {
-        "lightness": 50
-      },
-      {
-        "saturation": 0
-      },
-      {
-        "hue": "#ffffff"
+        "visibility": "simplified"
       }
     ]
   },
   {
-    "featureType": "administrative.province",
-    "stylers": [
-      {
-        "visibility": "on"
-      },
-      {
-        "lightness": -50
-      }
-    ]
-  },
-  {
-    "featureType": "administrative.province",
-    "elementType": "labels.text.stroke",
+    "featureType": "road.arterial",
+    "elementType": "labels.icon",
     "stylers": [
       {
         "visibility": "off"
@@ -103,11 +58,23 @@ const MAP_STYLE = [
     ]
   },
   {
-    "featureType": "administrative.province",
-    "elementType": "labels.text",
+    "featureType": "transit",
+    "elementType": "all",
     "stylers": [
       {
-        "lightness": 20
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "water",
+    "elementType": "all",
+    "stylers": [
+      {
+        "color": "#46bcec"
+      },
+      {
+        "visibility": "on"
       }
     ]
   }

@@ -3,16 +3,16 @@ import { Link } from "react-router-dom";
 
 const Header = () => (
     <header>
-        <nav className="navbar navbar-light">
-            <Link className="navbar-brand mx-auto" to="/">
-                <img
-                    srcset="/img/smart_heritage.png 300w, /img/smart_heritage.png 800w"
-                    sizes="(max-width: 600px) 480px, 800px"
-                    src="/img/smart_heritage.png"
-                    alt="SmartHeritage"
-                />
-            </Link>
-        </nav>
+        <div className="row mt-3">
+            <div className="col-sm-12 col-md-4 justify-content-sm-center">
+                <Link to="/">
+                    <img src="/img/sh_logo.png" alt="SmartHeritage" className="img-fluid" />
+                </Link>
+            </div>
+            <div className="col-md-8 d-none d-md-block">
+                <img src="/img/street_texture.png" className="img-fluid" />
+            </div>
+        </div>
     </header>
 );
 
