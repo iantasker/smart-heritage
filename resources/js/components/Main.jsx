@@ -8,15 +8,16 @@ const Main = ({ match }) => {
             {(!narrative_id || !event_id) && (
                 <div className="row">
                     <p className="col-sm-10 col-md-8 text-align-left">
-                        Smart Heritage brings the history of Hastings' America Ground and
-                        Trinity Triangle to life online through art & heritage projects
+                        Smart Heritage brings the history of Hastings' America
+                        Ground and Trinity Triangle to life online through art &
+                        heritage projects
                     </p>
                 </div>
             )}
             <Map narrative_id={narrative_id} event_id={event_id} />
 
             {(!narrative_id || !event_id) && (
-                <div className="row">
+                <div className="row mt-3">
                     <p className="col-sm-10 col-md-8 text-align-left">
                         <a href="http://www.mslprojects.co.uk/this-is-for-everyone">
                             This Is For Everyone
