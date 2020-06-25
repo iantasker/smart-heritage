@@ -2,6 +2,7 @@ id: 7829
 name: smart-heritage
 environments:
   production:
+    gateway-version: 2
     memory: 1024
     cli-memory: 512
     runtime: php-7.4
@@ -15,6 +16,7 @@ environments:
     deploy:
       - "php artisan migrate --force"
   staging:
+    gateway-version: 2
     memory: 1024
     cli-memory: 512
     runtime: php-7.4
