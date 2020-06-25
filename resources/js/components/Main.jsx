@@ -19,21 +19,28 @@ const Main = ({ match }) => {
                 <div className="row">
                     <p className="col-sm-10 col-md-8 text-align-left">
                         <a href="http://www.mslprojects.co.uk/this-is-for-everyone">
-                            This Is For Everyone
-                        </a>{" "}
-                        took place in Summer 2019 – see digital artwork by
-                        Rosanna Lowe, Judith Ricketts and Kevin Grist, funded by{" "}
-                        <a href="https://www.artscouncil.org.uk/">
-                            Arts Council England
-                        </a>
+                            <b>This Is For Everyone</b>
+                        </a>{" "} Three digital art and storytelling projects test out ways to bring the town streets to life. Work by Rosanna Lowe, Judith Ricketts and Kevin Grist.
                     </p>
                     <p className="col-sm-10 col-md-8 text-align-left">
                         <a href="http://www.mslprojects.co.uk/our-past-our-future-developing-historical-sources-for-creative-inspiration/">
-                            Our Past, Our Future
+                            <b>Our Past, Our Future</b>
                         </a>{" "}
-                        Took place in Winter 2019 – see work by our history and
-                        creative writing group funded by{" "}
-                        <a href="https://www.thespace.org/">The Space</a>
+                        Fifteen fascinating historical stories brought to life by our history and creative writing group, delivered via YouTube
+                    </p>
+                    <p className="col-sm-10 col-md-8 text-align-left">
+                        <b>A Derelict Chorale</b>{" "}
+                        Punk folk musician Chris Thorpe-Tracey created A Derelict Chorale, 10 powerful songs about the rebellious 1800s in Hastings when many were evicted from the America Ground.
+                    </p>
+                    <p className="col-sm-10 col-md-8 text-align-left">
+                        <b>Dot Dash Salons</b>{" "}
+                        Welcome to the Dot Dash virtual festival: eight one-hour Zoom Salons explore the fascinating history and present-day challenges for Hastings’ America Ground.
+                    </p>
+                    <p className="col-sm-10 col-md-8 text-align-left">
+                        <b>Rock On, Rock Fair: a Motley Musical of Raggle-Taggle Folkery with Curious Characters, Rollicking Rides and Heart-breaking, Soul-shaking Songs</b>
+                        {" "} Rosanna Lowe, writer, and researcher, Julie Gidlow, created Rock On, Rock Fair, an exploration in words and song of the historic Rock Fairs that took place over centuries in the Trinity Triangle.
+                    </p>
+                    <p className="col-sm-10 col-md-8 text-align-left">
                         Development of the Smart Heritage pilot map was funded
                         by <a href="https://www.thersa.org/">RSA</a> and the map
                         was build by{" "}
