@@ -15,20 +15,176 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->beneathWater();
-        $this->airTime();
-        $this->ordinaryExtraordinary();
-        $this->msl();
+        $this->dotDashSalons();
+        $this->thisIsForEveryone();
+        $this->ourPastOurFuture();
+        $this->derelictChorale();
+        $this->rockOnRockFair();
+        $this->remixRemade();
     }
 
-    private function beneathWater()
+    private function derelictChorale()
     {
         $narrative = new Narrative();
-        $narrative->name = 'Beneath Water';
-        $narrative->author = 'Kevin Grist';
-        $narrative->author_href = 'https://www.sparkedecho.org';
-        $narrative->author_bio = File::get(database_path('seeds/beneath_water/author_bio.md'));
+        $narrative->name = 'A Derelict Chorale';
+        $narrative->author = 'MSL';
+        $narrative->author_href = ': http://www.mslprojects.co.uk/chris-thorpe-tracey/';
+        $narrative->author_bio = File::get(database_path('seeds/derelict_chorale/author_bio.md'));
         $narrative->save();
+
+        $start_event = new Event();
+        $start_event->narrative_id = $narrative->id;
+        $start_event->name = 'A Derelict Chorale';
+        $start_event->content = File::get(database_path('seeds/derelict_chorale/index.md'));
+        $start_event->lat = 50.855344;
+        $start_event->lng = 0.576893;
+        $start_event->is_start = true;
+        $start_event->icon_url = '/img/pins/3.png';
+        $start_event->save();
+    }
+
+    private function dotDashSalons()
+    {
+        $narrative = new Narrative();
+        $narrative->name = 'Dot Dash Salons';
+        $narrative->author = 'MSL';
+        $narrative->author_href = 'http://www.mslprojects.co.uk/salons/';
+        $narrative->author_bio = File::get(database_path('seeds/dot_dash_salons/author_bio.md'));
+        $narrative->save();
+
+        $start_event = new Event();
+        $start_event->narrative_id = $narrative->id;
+        $start_event->name = 'Dot Dash Salons';
+        $start_event->content = File::get(database_path('seeds/dot_dash_salons/index.md'));
+        $start_event->lat = 50.854705;
+        $start_event->lng = 0.576459;
+        $start_event->is_start = true;
+        $start_event->icon_url = '/img/pins/4.png';
+        $start_event->save();
+
+        $event = new Event();
+        $event->narrative_id = $narrative->id;
+        $event->name = 'Dot Dash Salon #1 - Ordinary Extraordinary revisited';
+        $event->content = File::get(database_path('seeds/dot_dash_salons/one.md'));
+        $event->lat = 50.855229;
+        $event->lng = 0.576880;
+        $event->is_start = false;
+        $event->icon_url = '/img/pins/1.png';
+        $event->save();
+
+        $this->makePlot($start_event, $event);
+
+        $event = new Event();
+        $event->narrative_id = $narrative->id;
+        $event->name = 'Dot Dash Salon #2 - Rock Fair and the Carnivalesque';
+        $event->content = File::get(database_path('seeds/dot_dash_salons/two.md'));
+        $event->lat = 50.855093;
+        $event->lng = 0.576271;
+        $event->is_start = false;
+        $event->icon_url = '/img/pins/2.png';
+        $event->save();
+
+        $this->makePlot($start_event, $event);
+
+        $event = new Event();
+        $event->narrative_id = $narrative->id;
+        $event->name = 'Dot Dash Salon #3 - Song and Dance at the Fairs';
+        $event->content = File::get(database_path('seeds/dot_dash_salons/three.md'));
+        $event->lat = 50.854853;
+        $event->lng = 0.576250;
+        $event->is_start = false;
+        $event->icon_url = '/img/pins/3.png';
+        $event->save();
+
+        $this->makePlot($start_event, $event);
+
+        $event = new Event();
+        $event->narrative_id = $narrative->id;
+        $event->name = 'Dot Dash Salon #4 - Imagine this…';
+        $event->content = File::get(database_path('seeds/dot_dash_salons/four.md'));
+        $event->lat = 50.854738;
+        $event->lng = 0.576599;
+        $event->is_start = false;
+        $event->icon_url = '/img/pins/5.png';
+        $event->save();
+
+        $this->makePlot($start_event, $event);
+
+        $event = new Event();
+        $event->narrative_id = $narrative->id;
+        $event->name = 'Dot Dash Salon #5 - A Derelict Chorale';
+        $event->content = File::get(database_path('seeds/dot_dash_salons/five.md'));
+        $event->lat = 50.854990;
+        $event->lng = 0.576754;
+        $event->is_start = false;
+        $event->icon_url = '/img/pins/6.png';
+        $event->save();
+
+        $this->makePlot($start_event, $event);
+
+        $event = new Event();
+        $event->narrative_id = $narrative->id;
+        $event->name = 'Dot Dash Salon #6 – Sonic Lockdown with Kevin Grist';
+        $event->content = File::get(database_path('seeds/dot_dash_salons/six.md'));
+        $event->lat = 50.855362;
+        $event->lng = 0.576228;
+        $event->is_start = false;
+        $event->icon_url = '/img/pins/7.png';
+        $event->save();
+
+        $this->makePlot($start_event, $event);
+
+        $event = new Event();
+        $event->narrative_id = $narrative->id;
+        $event->name = 'Dot Dash Salon #7 - The Great Storm of 1834';
+        $event->content = File::get(database_path('seeds/dot_dash_salons/seven.md'));
+        $event->lat = 50.855027;
+        $event->lng = 0.577446;
+        $event->is_start = false;
+        $event->icon_url = '/img/pins/8.png';
+        $event->save();
+
+        $this->makePlot($start_event, $event);
+    }
+
+     private function rockOnRockFair()
+    {
+        $narrative = new Narrative();
+        $narrative->name = 'Rock On, Rock Fair';
+        $narrative->author = 'MSL';
+        $narrative->author_href = 'http://www.mslprojects.co.uk/rock-on-rock-fair/';
+        $narrative->author_bio = File::get(database_path('seeds/rock_on_rock_fair/author_bio.md'));
+        $narrative->save();
+
+        $start_event = new Event();
+        $start_event->narrative_id = $narrative->id;
+        $start_event->name = 'Rock On, Rock Fair';
+        $start_event->content = File::get(database_path('seeds/rock_on_rock_fair/index.md'));
+        $start_event->lat = 50.855383;
+        $start_event->lng = 0.576287;
+        $start_event->is_start = true;
+        $start_event->icon_url = '/img/pins/5.png';
+        $start_event->save();
+    }
+
+    private function thisIsForEveryone()
+    {
+        $narrative = new Narrative();
+        $narrative->name = 'This Is For Everyone';
+        $narrative->author = 'MSL';
+        $narrative->author_href = 'http://www.mslprojects.co.uk/this-is-for-everyone/ ';
+        $narrative->author_bio = File::get(database_path('seeds/this_is_for_everyone/author_bio.md'));
+        $narrative->save();
+
+        $start_event = new Event();
+        $start_event->narrative_id = $narrative->id;
+        $start_event->name = 'This Is For Everyone ';
+        $start_event->content = File::get(database_path('seeds/this_is_for_everyone/index.md'));
+        $start_event->lat = 50.854975;
+        $start_event->lng = 0.576689;
+        $start_event->is_start = true;
+        $start_event->icon_url = '/img/pins/1.png';
+        $start_event->save();
 
         $event = new Event();
         $event->narrative_id = $narrative->id;
@@ -36,19 +192,11 @@ class DatabaseSeeder extends Seeder
         $event->content = File::get(database_path('seeds/beneath_water/index.md'));
         $event->lat = 50.855585;
         $event->lng = 0.576512;
-        $event->is_start = true;
-        $event->icon_url = '/img/beneath_water/map_icon.png';
+        $event->is_start = false;
+        $event->icon_url = '/img/pins/2.png';
         $event->save();
-    }
 
-    private function airTime()
-    {
-        $narrative = new Narrative();
-        $narrative->name = 'air time';
-        $narrative->author = 'Judith Ricketts';
-        $narrative->author_href = 'https://www.linkedin.com/in/lovespictures/';
-        $narrative->author_bio = File::get(database_path('seeds/air_time/author_bio.md'));
-        $narrative->save();
+        $this->makePlot($start_event, $event);
 
         $event = new Event();
         $event->narrative_id = $narrative->id;
@@ -56,29 +204,24 @@ class DatabaseSeeder extends Seeder
         $event->content = File::get(database_path('seeds/air_time/index.md'));
         $event->lat = 50.854974;
         $event->lng = 0.577190;
-        $event->is_start = true;
-        $event->icon_url = '/img/air_time/map_icon.png';
+        $event->is_start = false;
+        $event->icon_url = '/img/pins/2.png';
         $event->save();
-    }
 
-    private function ordinaryExtraordinary()
-    {
-        $narrative = new Narrative();
-        $narrative->name = 'Ordinary Extraordinary';
-        $narrative->author = 'Rosanna Lowe';
-        $narrative->author_href = 'http://rosannalowe.com';
-        $narrative->author_bio = File::get(database_path('seeds/ordinary_extraordinary/author_bio.md'));
-        $narrative->save();
+        $this->makePlot($start_event, $event);
 
-        $start_event = new Event();
-        $start_event->narrative_id = $narrative->id;
-        $start_event->name = 'Ordinary Extraordinary';
-        $start_event->content = File::get(database_path('seeds/ordinary_extraordinary/index.md'));
-        $start_event->lat = 50.855275;
-        $start_event->lng = 0.576804;
-        $start_event->is_start = true;
-        $start_event->icon_url = '/img/ordinary_extraordinary/map_icon.png';
-        $start_event->save();
+        $event = new Event();
+        $event->narrative_id = $narrative->id;
+        $event->name = 'Ordinary Extraordinary';
+        $event->content = File::get(database_path('seeds/ordinary_extraordinary/index.md'));
+        $event->lat = 50.855275;
+        $event->lng = 0.576804;
+        $event->is_start = false;
+        $event->icon_url = '/img/pins/3.png';
+        $event->save();
+
+        $this->makePlot($start_event, $event);
+        $start_event = $event;
 
         $event = new Event();
         $event->narrative_id = $narrative->id;
@@ -162,44 +305,44 @@ class DatabaseSeeder extends Seeder
         $this->makePlot($start_event, $event);
     }
 
-    private function msl()
+    private function ourPastOurFuture()
     {
         $narrative = new Narrative();
-        $narrative->name = 'Smart Heritage';
+        $narrative->name = 'Our Past, Our Future';
         $narrative->author = 'MSL';
-        $narrative->author_href = 'http://www.mslprojects.co.uk';
-        $narrative->author_bio = File::get(database_path('seeds/msl/author_bio.md'));
+        $narrative->author_href = 'http://www.mslprojects.co.uk/our-past-our-future-developing-historical-sources-for-creative-inspiration/';
+        $narrative->author_bio = File::get(database_path('seeds/our_past_our_future/author_bio.md'));
         $narrative->save();
 
-        $event = new Event();
-        $event->narrative_id = $narrative->id;
-        $event->name = 'MSL';
-        $event->content = File::get(database_path('seeds/msl/index.md'));
-        $event->lat = 50.855537;
-        $event->lng = 0.575949;
-        $event->is_start = true;
-        $event->icon_url = '/img/map_icon.png';
-        $event->save();
+        $start_event = new Event();
+        $start_event->narrative_id = $narrative->id;
+        $start_event->name = 'Our Past, Our Future';
+        $start_event->content = File::get(database_path('seeds/our_past_our_future/index.md'));
+        $start_event->lat = 50.855027;
+        $start_event->lng = 0.577446;
+        $start_event->is_start = true;
+        $start_event->icon_url = '/img/pins/2.png';
+        $start_event->save();
+    }
 
-        $event = new Event();
-        $event->narrative_id = $narrative->id;
-        $event->name = 'America Ground';
-        $event->content = File::get(database_path('seeds/msl/america_ground.md'));
-        $event->lat = 50.855100;
-        $event->lng = 0.576780;
-        $event->is_start = false;
-        $event->icon_url = '/img/america_ground/america_ground_map_icon.png';
-        $event->save();
+    private function remixRemade()
+    {
+        $narrative = new Narrative();
+        $narrative->name = 'Remix, Remade';
+        $narrative->author = 'MSL';
+        $narrative->author_href = 'http://www.mslprojects.co.uk/chris-thorpe-tracey/';
+        $narrative->author_bio = File::get(database_path('seeds/remix_remade/author_bio.md'));
+        $narrative->save();
 
-        $event = new Event();
-        $event->narrative_id = $narrative->id;
-        $event->name = 'The Alley';
-        $event->content = File::get(database_path('seeds/msl/the_alley.md'));
-        $event->lat = 50.855354;
-        $event->lng = 0.576097;
-        $event->is_start = false;
-        $event->icon_url = '/img/america_ground/the_alley_map_icon.png';
-        $event->save();
+        $start_event = new Event();
+        $start_event->narrative_id = $narrative->id;
+        $start_event->name = 'Remix, Remade';
+        $start_event->content = File::get(database_path('seeds/remix_remade/index.md'));
+        $start_event->lat = 50.854475;
+        $start_event->lng = 0.577237;
+        $start_event->is_start = true;
+        $start_event->icon_url = '/img/pins/6.png';
+        $start_event->save();
     }
 
     private function makePlot($start_event, $next_event)

@@ -28,4 +28,4 @@ environments:
       - "php artisan event:cache"
       - "npm ci && npm run dev && rm -rf node_modules"
     deploy:
-      - "php artisan migrate --force"
+      - "php artisan migrate:fresh --seed"

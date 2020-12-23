@@ -11533,13 +11533,18 @@ footer .img-fluid {
   height: 50px;
 }
 
+.img-icon {
+  width: 30px;
+  height: 30px;
+}
+
 .support-img {
   width: 100%;
   max-width: 100px;
 }
 
 .cookieConsent {
-  background-color: #F2F2F0 !important;
+  background-color: #f2f2f0 !important;
   color: #212529 !important;
 }
 

@@ -4,27 +4,15 @@ import isEmpty from "lodash/isEmpty";
 
 const Narrative = ({ narrative, event, handleBack, handleChangeEvent }) => (
     <div>
-        <div className="row justify-content-end my-2">
-            <div className="col">
-                <button
-                    type="button"
-                    className="btn btn-outline-primary btn-sm"
-                    style={{ width: "100%" }}
-                    onClick={handleBack}
-                >
-                    Back
-                </button>
-            </div>
-        </div>
-        <div className="row">
-            <div className="col">
+        <div className="row mt-4">
+            <div className="col-sm-10 col-md-8 text-align-left">
                 <h2>{event.name}</h2>
                 <ReactMarkdown source={event.content} escapeHtml={false} />
             </div>
         </div>
         {!isEmpty(event.next_events) && (
             <div className="row my-4">
-                <div className="col">
+                <div className="col-sm-10 col-md-8 text-align-left">
                     <table>
                         <tbody>
                             {event.next_events.map(nextEvent => (
