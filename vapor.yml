@@ -5,7 +5,7 @@ environments:
     gateway-version: 2
     memory: 1024
     cli-memory: 512
-    runtime: php-7.4
+    runtime: docker
     domain:
       - smart-heritage.co.uk
     storage: storage-smart-heritage-co-uk
@@ -19,7 +19,7 @@ environments:
     gateway-version: 2
     memory: 1024
     cli-memory: 512
-    runtime: php-7.4
+    runtime: docker
     domain:
       - staging.smart-heritage.co.uk
     storage: storage-staging-smart-heritage-co-uk
