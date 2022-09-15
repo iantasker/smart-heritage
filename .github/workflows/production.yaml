@@ -19,7 +19,7 @@ jobs:
           tools: composer:v2
           coverage: none
     - name: Install Composer dependencies
-      run: composer install --prefer-dist --no-interaction --no-dev
+      run: composer install --no-interaction
     - name: Require Vapor CLI
       run: composer global require laravel/vapor-cli
     - name: Deploy Environment
