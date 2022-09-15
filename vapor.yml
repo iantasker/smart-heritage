@@ -1,4 +1,4 @@
-id: 7829
+id: 34031
 name: smart-heritage
 environments:
   production:
@@ -8,13 +8,13 @@ environments:
     runtime: php-7.4
     domain:
       - smart-heritage.co.uk
-    storage: smart-heritage-co-uk
+    storage: storage-smart-heritage-co-uk
     build:
       - "composer install --no-dev"
       - "php artisan event:cache"
       - "npm ci && npm run prod && rm -rf node_modules"
     deploy:
-      - "php artisan migrate --force"
+      - "php artisan migrate:fresh --seed"
   staging:
     gateway-version: 2
     memory: 1024
@@ -22,7 +22,7 @@ environments:
     runtime: php-7.4
     domain:
       - staging.smart-heritage.co.uk
-    storage: staging-smart-heritage-co-uk
+    storage: storage-staging-smart-heritage-co-uk
     build:
       - "composer install"
       - "php artisan event:cache"
